@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2022-09-26)
+
+
+### Bug Fixes
+
+* 16 add license ([d67d22b](https://github.com/revoltage-inc/uindowos/commit/d67d22bdf37c18bcbeb87cabbc53295fc2fdbe89))
+
 ## [1.3.1](https://github.com/revoltage-inc/tmp-nextjs/compare/v1.3.0...v1.3.1) (2022-09-24)
 
 
