@@ -1,0 +1,101 @@
+{
+  "name": "tmp-nextjs",
+  "version": "1.3.1",
+  "description": "Template for Next.js",
+  "author": "@yogarasu",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint && stylelint src/assets/css/**/*.css --fix --config stylelint.config.js",
+    "sb": "npx sb dev -p 6006",
+    "update:sb": "npx sb@future upgrade --prerelease",
+    "update": "npx ncu -u && npm install"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.2",
+    "@hookform/resolvers": "^2.9.8",
+    "@prisma/client": "^4.3.1",
+    "@trpc/client": "^9.27.2",
+    "@trpc/next": "^9.27.2",
+    "@trpc/react": "^9.27.2",
+    "@trpc/server": "^9.27.2",
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
+    "react-icons": "^4.4.0",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@storybook/addon-actions": "^7.0.0-alpha.33",
+    "@storybook/addon-essentials": "^7.0.0-alpha.33",
+    "@storybook/addon-interactions": "^7.0.0-alpha.33",
+    "@storybook/addon-links": "^7.0.0-alpha.33",
+    "@storybook/addon-viewport": "^7.0.0-alpha.33",
+    "@storybook/node-logger": "^7.0.0-alpha.33",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^7.0.0-alpha.33",
+    "@storybook/react-vite": "^7.0.0-alpha.33",
+    "@storybook/react-webpack5": "^7.0.0-alpha.33",
+    "@storybook/testing-library": "^0.0.14-next.0",
+    "@storybook/theming": "^7.0.0-alpha.33",
+    "@svgr/webpack": "^6.3.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/node": "^18.7.21",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "autoprefixer": "^10.4.12",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.24.0",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-storybook": "^0.6.4",
+    "eslint-plugin-tailwindcss": "^3.6.2",
+    "npm-check-updates": "^16.3.2",
+    "postcss": "^8.4.16",
+    "postcss-import": "^15.0.0",
+    "postcss-preset-env": "^7.8.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prisma": "^4.3.1",
+    "storybook": "^7.0.0-alpha.33",
+    "storybook-dark-mode": "^1.1.2",
+    "stylelint": "^14.12.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^9.0.0",
+    "stylelint-order": "^5.0.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.3",
+    "vite-plugin-svgr": "^2.2.1",
+    "webpack": "^5.74.0"
+  },
+  "overrides": {
+    "css-select": "^4.0.0",
+    "got": "^11.8.5",
+    "trim": "^0.0.3"
+  },
+  "browserslist": [
+    "> 1% in JP",
+    "last 2 versions"
+  ],
+  "volta": {
+    "node": "18.9.0",
+    "npm": "8.19.1"
+  },
+  "engines": {
+    "node": ">=18.9.0",
+    "npm": ">=8.19.1"
+  },
+  "keywords": [
+    "tmp-nextjs",
+    "next.js",
+    "tailwindcss",
+    "storybook"
+  ]
+}
