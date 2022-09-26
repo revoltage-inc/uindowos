@@ -1,11 +1,11 @@
-# tmp-nextjs(α)
+# UindowOS(α)
 
-This repository is template for Next.js.  
-This includes Storybook and TailwindCSS.  
+This repository is unofficial fan site of Ui Shigure, Illustrator and VTuber.  
+This fan site that reproduce UindowOS of Ui Shigure.  
 
 > **Warning**  
-> This template is still in alpha stage.  
-> Beware destructive changes.  
+> This repository is still in alpha stage.  
+> This site is not yet open to the public.  
 
 <h2 id="setting">Setting</h2>
 
@@ -59,4 +59,5 @@ npm run dev
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+It is prohibited to clone and publish site without permission, and to use it for commercial purposes.  
+Malicious use may result in legal action.  
