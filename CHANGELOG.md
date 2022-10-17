@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/revoltage-inc/uindowos/compare/v0.0.1...v0.0.2) (2022-10-17)
+
+
+### Bug Fixes
+
+* 41 Replace "Story → StoryObj" ([f8b85e3](https://github.com/revoltage-inc/uindowos/commit/f8b85e39df33d6150252996ae5cfb13b9d740f0e))
+
 ## [1.3.1](https://github.com/revoltage-inc/tmp-nextjs/compare/v1.3.0...v1.3.1) (2022-09-24)
 
 
