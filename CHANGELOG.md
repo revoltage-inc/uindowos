@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/revoltage-inc/uindowos/compare/v0.0.2...v0.0.3) (2022-10-18)
+
+
+### Bug Fixes
+
+* 44 remove react default import ([7d298d6](https://github.com/revoltage-inc/uindowos/commit/7d298d668fdfdc4a5a1ab062c557b0c919d1d59d))
+
 ## [0.0.2](https://github.com/revoltage-inc/uindowos/compare/v0.0.1...v0.0.2) (2022-10-17)
 
 
