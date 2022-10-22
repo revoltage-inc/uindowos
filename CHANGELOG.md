@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.10](https://github.com/revoltage-inc/uindowos/compare/v0.0.9...v0.0.10) (2022-10-22)
+
+
+### Bug Fixes
+
+* 75 add lisence ([de8d903](https://github.com/revoltage-inc/uindowos/commit/de8d9037bb4a45b9e338a52f5a1ac43fc948591e))
+
 ## [0.0.9](https://github.com/revoltage-inc/uindowos/compare/v0.0.8...v0.0.9) (2022-10-22)
 
 
