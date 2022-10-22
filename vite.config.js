@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       '@css': resolve(__dirname, './src/assets/css/'),
       '@svg': resolve(__dirname, './src/assets/svg/'),
+      '@lib': resolve(__dirname, './src/libs/'),
     },
   },
   // HACK: STORYBOOK environment variable is not working, so set
