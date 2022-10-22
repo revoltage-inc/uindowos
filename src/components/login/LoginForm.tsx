@@ -183,7 +183,7 @@ export const LoginForm = () => {
                   ref={passwordRef}
                   id="password"
                   type="password"
-                  className="test-[16px] absolute top-0 left-0 h-[28px] w-[140px] rounded-sm border-none bg-snow px-[8px] py-[2px] font-[hatch] font-bold leading-none tracking-[3px] text-coral-pink caret-transparent focus:ring-0"
+                  className="absolute top-0 left-0 h-[28px] w-[140px] rounded-sm border-none bg-snow px-[8px] py-[2px] font-[hatch] font-bold leading-none tracking-[3px] text-coral-pink caret-transparent focus:ring-0"
                   autoComplete="off"
                   maxLength={12}
                   size={12}
