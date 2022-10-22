@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/revoltage-inc/uindowos/compare/v0.0.3...v0.0.4) (2022-10-22)
+
+
+### Bug Fixes
+
+* 6 Support for English and Japanese localization ([9db8035](https://github.com/revoltage-inc/uindowos/commit/9db8035211abf72c4df330ed7efc9d28008148d2))
+
 ## [0.0.3](https://github.com/revoltage-inc/uindowos/compare/v0.0.2...v0.0.3) (2022-10-18)
 
 
