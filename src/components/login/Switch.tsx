@@ -9,7 +9,7 @@ interface Args {
   href?: string
 }
 
-export default function Switch(args: Args) {
+export const Switch = (args: Args) => {
   const type = args.type ? args.type : 'off'
   const href = args.href ? args.href : '/'
   const router = useRouter()

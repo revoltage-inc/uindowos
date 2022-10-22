@@ -6,9 +6,9 @@ import BurstSVG from '@svg/login/burst.svg'
 import NextButtonSVG from '@svg/login/next-button.svg'
 import styles from '@style/components/layouts/Login.module.css'
 import { detect } from 'detect-browser'
-import Switch from './Switch'
+import { Switch } from './Switch'
 
-export default function LoginForm() {
+export const LoginForm = () => {
   const didLogRef = useRef(false)
   const passwordRef = useRef<HTMLInputElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)

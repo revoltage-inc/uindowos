@@ -7,7 +7,7 @@ import TerminalTongueSVG from '@svg/login/terminal/terminal-tongue.svg'
 import RainSVG from '@svg/login/rain.svg'
 import UmbrellaSVG from '@svg/login/umbrella.svg'
 
-export default function Terminal() {
+export const Terminal = () => {
   const didLogRef = useRef(false)
 
   useEffect(() => {
