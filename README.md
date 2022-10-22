@@ -1,7 +1,7 @@
 # UindowOS(α)
 
-This repository is unofficial fan site of Ui Shigure, Illustrator and VTuber.  
-This fan site that reproduce UindowOS of Ui Shigure.  
+This repository is unofficial fan site of [Ui Shigure](https://twitter.com/ui_shig), Illustrator and VTuber.  
+It is created with reference to "UindowOS" of the stream screen of Ui Shigure.  
 
 > **Warning**  
 > This repository is still in alpha stage.  
@@ -59,5 +59,5 @@ npm run dev
 
 ## License
 
-It is prohibited to clone and publish site without permission, and to use it for commercial purposes.  
+This repository is [MIT License](https://opensource.org/licenses/MIT).  
 Malicious use may result in legal action.  
