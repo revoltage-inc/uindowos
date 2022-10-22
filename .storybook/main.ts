@@ -47,6 +47,7 @@ const config: StorybookConfig = {
   //       ...{
   //         '@css': resolve(__dirname, '../src/assets/css/'),
   //         '@svg': resolve(__dirname, '../src/assets/svg/'),
+  //         '@lib': resolve(__dirname, '../src/libs/'),
   //       },
   //     }
   //   }

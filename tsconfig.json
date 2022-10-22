@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@css*": [ "src/assets/css*"],
-      "@svg*": [ "src/assets/svg*"]
+      "@svg*": [ "src/assets/svg*"],
+      "@lib*": [ "src/libs*"]
     },
     "incremental": true
   },

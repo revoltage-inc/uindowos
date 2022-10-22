@@ -8,6 +8,10 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
     disableStaticImages: true,
   },
+  i18n: {
+    locales: ['en', 'ja'],
+    defaultLocale: 'ja',
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
