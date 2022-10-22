@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useCookies } from 'react-cookie'
-import Terminal from '../layouts/login/Terminal'
-import LoginForm from '../layouts/login/LoginForm'
+import Terminal from '../login/Terminal'
+import LoginForm from '../login/LoginForm'
 
 export const Login = () => {
   const didLogRef = useRef(false)
