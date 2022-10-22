@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.6](https://github.com/revoltage-inc/uindowos/compare/v0.0.5...v0.0.6) (2022-10-22)
+
+
+### Bug Fixes
+
+* 60 add BIOS Page ([f0ea32b](https://github.com/revoltage-inc/uindowos/commit/f0ea32bdff03fb5c152fa951a1e2bb018ec1ca1a))
+* 60 add document ([823361c](https://github.com/revoltage-inc/uindowos/commit/823361cd7447c1c3bc402030ae793970377eb762))
+* 60 fix globals.css ([6bcb205](https://github.com/revoltage-inc/uindowos/commit/6bcb2055194c33582fbf3a62a4140bbcee7a215c))
+* 60 fix state ([9482a38](https://github.com/revoltage-inc/uindowos/commit/9482a381ba99c13aa65bfa4b4e0532acb32c674c))
+* 60 refactoring ([325417e](https://github.com/revoltage-inc/uindowos/commit/325417e64a5738f51f03242949130efd7aabba15))
+* 60 remove default component ([90ed4eb](https://github.com/revoltage-inc/uindowos/commit/90ed4eb2dae23506d0001ac604f451c6f6f80d81))
+* 60 rename ([8875b97](https://github.com/revoltage-inc/uindowos/commit/8875b977d9ee7b9452ac11e442b31d18ab1ee50c))
+
 ## [0.0.5](https://github.com/revoltage-inc/uindowos/compare/v0.0.4...v0.0.5) (2022-10-22)
 
 
