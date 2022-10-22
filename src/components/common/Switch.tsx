@@ -44,6 +44,7 @@ export const Switch = (args: Args) => {
           <div id="thumbnail" className="absolute top-0 left-0 h-full w-full bg-[#ffa7b0]"></div>
           <div className="absolute top-0 left-0 z-10 h-full w-full">
             <TitleSVG className="absolute top-1/2 left-1/2 h-[75px] w-[240px] -translate-x-1/2 -translate-y-1/2 fill-white" />
+            <span className="sr-only">しぐれうい</span>
           </div>
         </div>
       </div>
