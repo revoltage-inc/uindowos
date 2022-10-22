@@ -8,15 +8,11 @@ import RainSVG from '@svg/login/rain.svg'
 import UmbrellaSVG from '@svg/login/umbrella.svg'
 
 export const Terminal = () => {
-  const didLogRef = useRef(false)
+  const state = useRef(false)
 
   useEffect(() => {
-    if (!didLogRef.current && typeof window !== 'undefined') {
-      didLogRef.current = true
-
-      // FIXME: 見つからないのでコメントアウト
-      // SomeTrackingAPI.logImpression()
-
+    if (!state.current && typeof window !== 'undefined') {
+      state.current = true
       terminalAnimation()
     }
   })

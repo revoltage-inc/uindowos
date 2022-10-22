@@ -4,7 +4,7 @@ export function switchOnAnimation() {
   const timeline = gsap.timeline()
 
   timeline
-    // 初期化
+    // Init
     .to('#switch-wrap', {
       display: 'block',
       duration: 0,
@@ -17,7 +17,7 @@ export function switchOnAnimation() {
       filter: 'brightness(75%)',
       duration: 0,
     })
-    // 蓋絵を回転しながら拡大する
+    // Zoom in while rotating
     .to('#switch', {
       transform: 'scale(0.6) rotateY(80deg)',
       duration: 0.4,
@@ -32,7 +32,7 @@ export function switchOnAnimation() {
       },
       '-=0.2'
     )
-    // 蓋絵の照度を明るくする
+    // Brighten thumbnail
     .to(
       '#switch #thumbnail',
       {
@@ -47,12 +47,12 @@ export function switchOffAnimation() {
   const timeline = gsap.timeline()
 
   timeline
-    // 初期化
+    // Init
     .to('#switch-wrap', {
       display: 'block',
       duration: 0.2,
     })
-    // 蓋絵を縮小しながら回転させる
+    // Rotate while shrinking
     .to('#switch', {
       'transform-origin': 'bottom right',
       duration: 0,
@@ -73,7 +73,7 @@ export function switchOffAnimation() {
       },
       '-=0.2'
     )
-    // 蓋絵を非表示にする
+    // Hide thumbnail
     .to('#switch-wrap', {
       display: 'none',
       duration: 0,

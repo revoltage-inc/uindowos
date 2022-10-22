@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useCookies } from 'react-cookie'
 import { Terminal } from '../login/Terminal'
 import { LoginForm } from '../login/LoginForm'
 
 export const Login = () => {
-  const didLogRef = useRef(false)
+  const state = useRef(false)
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies, removeCookies] = useCookies([
     'showTerminal',
@@ -14,9 +14,8 @@ export const Login = () => {
   const [showTerminal, setShowTerminal] = useState(true)
 
   useEffect(() => {
-    if (!didLogRef.current && typeof window !== 'undefined') {
-      didLogRef.current = true
-
+    if (!state.current && typeof window !== 'undefined') {
+      state.current = true
       setShowTerminal(cookies.showTerminal !== 'false')
       removeCookies('switchOffAnimation')
       removeCookies('homeAnimation')

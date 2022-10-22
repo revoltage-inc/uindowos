@@ -10,16 +10,16 @@ interface Args {
 }
 
 export const Switch = (args: Args) => {
+  const state = useRef(false)
   const type = args.type ? args.type : 'off'
   const href = args.href ? args.href : '/'
   const router = useRouter()
-  const didLogRef = useRef(false)
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie] = useCookies(['switchOnAnimation', 'switchOffAnimation'])
 
   useEffect(() => {
-    if (!didLogRef.current && typeof window !== 'undefined') {
-      didLogRef.current = true
+    if (!state.current && typeof window !== 'undefined') {
+      state.current = true
       if (type === 'on' && cookies.switchOnAnimation !== 'false') {
         switchOnAnimation()
         setInterval(() => router.push(href), 800)

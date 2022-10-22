@@ -4,12 +4,12 @@ import { gsap, Power2 } from 'gsap'
 import Umbrella2SVG from '@svg/login/umbrella2.svg'
 import BurstSVG from '@svg/login/burst.svg'
 import NextButtonSVG from '@svg/login/next-button.svg'
-import styles from '@style/components/layouts/Login.module.css'
+import styles from '@style/components/login/LoginForm.module.css'
 import { detect } from 'detect-browser'
 import { Switch } from './Switch'
 
 export const LoginForm = () => {
-  const didLogRef = useRef(false)
+  const state = useRef(false)
   const passwordRef = useRef<HTMLInputElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)
   const nextButtonRef = useRef<HTMLButtonElement>(null)
@@ -18,10 +18,9 @@ export const LoginForm = () => {
   const [showSwitch, setShowSwitch] = useState(false)
 
   useEffect(() => {
-    if (!didLogRef.current && typeof window !== 'undefined') {
-      didLogRef.current = true
-
-      // 初回ページロード時のみターミナルのアニメーションを実行
+    if (!state.current && typeof window !== 'undefined') {
+      state.current = true
+      // Run terminal animation only on first page load
       setAnimation(cookies.showTerminal !== 'false')
       setCookie('showTerminal', false)
     }
@@ -57,7 +56,7 @@ export const LoginForm = () => {
         ? passwordRef.current.selectionStart
         : 0
 
-      // FIXME: なぜかブラウザごとにキャレットの位置がずれるので暫定対応
+      // FIX: For some reason the position of the caret shifts for each browser, so provisional support
       let caretLeft = `calc(${caretPosition * 0.58}rem + 0.4rem)`
       if (browser) {
         if (browser.name === 'safari') {
@@ -94,13 +93,13 @@ export const LoginForm = () => {
   }
 
   const setAnimation = (showTerminal: boolean) => {
-    // ターミナルのアニメーション時間だけ遅延させる
+    // Delay by terminal animation time
     const timeline = gsap.timeline({
       duration: showTerminal ? 5.6 : 0,
     })
 
     timeline
-      // ログインフォームをフェードインして表示する
+      // Show login form faded in
       .fromTo(
         '#login-form',
         {
