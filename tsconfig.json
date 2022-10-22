@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@css*": [ "src/assets/css*"],
+      "@style*": [ "src/styles/*" ],
+      "@css*": [ "public/css*"],
       "@svg*": [ "src/assets/svg*"],
       "@lib*": [ "src/libs*"]
     },

@@ -1,6 +1,6 @@
 import { themes } from '@storybook/theming'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import '../src/assets/css/globals.css'
+import '../public/css/globals.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -19,7 +19,7 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
   },
   backgrounds: {
-    default: 'gray',
+    default: 'white',
     values: [
       {
         name: 'white',
@@ -32,6 +32,10 @@ export const parameters = {
       {
         name: 'gray',
         value: '#f3f4f6',
+      },
+      {
+        name: 'coral-pink',
+        value: '#ff7b88',
       },
     ],
   },

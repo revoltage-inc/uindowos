@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  @apply flex h-screen w-full flex-1 flex-col items-start justify-start overflow-hidden;
+}
+
+body {
+  @apply relative h-full w-full cursor-default overflow-y-hidden bg-black font-normal;
+  font-family: fot-tsukuardgothic-std, sans-serif;
+}
+
+@font-face {
+  font-family: 'hatch';
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+/* HACK: Safariのautocompleteをoffにする */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}

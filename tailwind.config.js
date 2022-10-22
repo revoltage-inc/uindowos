@@ -4,6 +4,9 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      sans: ['hatch'],
+    },
     colors: {
       transparent: colors.transparent,
       current: colors.current,
@@ -13,8 +16,20 @@ module.exports = {
       slate: colors.slate,
     },
     extend: {
+      cursor: {
+        default: 'url(/svg/cursor.svg) 0 0, default',
+      },
       colors: {
-        main: colors.white,
+        main: '#ff7b88',
+        snow: '#f9ece7',
+        khaki: '#ffd68c',
+        'royal-blue': '#7f9dfd',
+        'dark-olive': '#867f78',
+        'light-olive': '#b6afa8',
+        'coral-pink': '#ff7b88',
+        'pastel-pink': '#ffa3aa',
+        'pastel-yellow': '#ffe4ac',
+        'pastel-aqua': '#b9eedd',
       },
     },
   },
