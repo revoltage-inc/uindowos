@@ -6,7 +6,7 @@ import BurstSVG from '@svg/login/burst.svg'
 import NextButtonSVG from '@svg/login/next-button.svg'
 import styles from '@style/components/login/LoginForm.module.css'
 import { detect } from 'detect-browser'
-import { Switch } from './Switch'
+import { Switch } from '../common/Switch'
 
 export const LoginForm = () => {
   const state = useRef(false)
