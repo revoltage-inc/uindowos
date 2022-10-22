@@ -2,19 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+main {
+  @apply flex h-screen w-full flex-1 flex-col items-start justify-start overflow-hidden;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  margin: 0;
-  padding: 0;
+  @apply relative h-full w-full cursor-default overflow-y-hidden bg-black font-normal;
+  font-family: fot-tsukuardgothic-std, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: 'hatch';
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
 }
 
-* {
-  box-sizing: border-box;
+/* HACK: Safariのautocompleteをoffにする */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
 }

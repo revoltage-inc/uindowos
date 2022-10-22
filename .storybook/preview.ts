@@ -19,7 +19,7 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
   },
   backgrounds: {
-    default: 'gray',
+    default: 'white',
     values: [
       {
         name: 'white',
@@ -32,6 +32,10 @@ export const parameters = {
       {
         name: 'gray',
         value: '#f3f4f6',
+      },
+      {
+        name: 'coral-pink',
+        value: '#ff7b88',
       },
     ],
   },

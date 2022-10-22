@@ -1,0 +1,45 @@
+/* 明滅させるアニメーション */
+.blink {
+  animation: blink 1s ease infinite;
+}
+
+/* 一瞬だけ縮小するアニメーション */
+.shrink {
+  animation: shrink 0.1s ease;
+}
+
+/* 揺らぐように縮小するアニメーション */
+.fluct {
+  animation: fluct 3s ease infinite;
+}
+
+/* 明滅させるアニメーション */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shrink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes fluct {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+}
