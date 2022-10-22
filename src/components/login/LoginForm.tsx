@@ -6,7 +6,7 @@ import BurstSVG from '@svg/login/burst.svg'
 import NextButtonSVG from '@svg/login/next-button.svg'
 import styles from '@style/components/login/LoginForm.module.css'
 import { detect } from 'detect-browser'
-import { Switch } from './Switch'
+import { Switch } from '../common/Switch'
 
 export const LoginForm = () => {
   const state = useRef(false)
@@ -143,7 +143,7 @@ export const LoginForm = () => {
 
   return (
     <>
-      {showSwitch && <Switch type="on" href="/home" />}
+      {showSwitch && <Switch type="on" href="/" />}
       <div
         id="login-form-wrap"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -183,7 +183,7 @@ export const LoginForm = () => {
                   ref={passwordRef}
                   id="password"
                   type="password"
-                  className="test-[16px] absolute top-0 left-0 h-[28px] w-[140px] rounded-sm border-none bg-snow px-[8px] py-[2px] font-[hatch] font-bold leading-none tracking-[3px] text-coral-pink caret-transparent focus:ring-0"
+                  className="absolute top-0 left-0 h-[28px] w-[140px] rounded-sm border-none bg-snow px-[8px] py-[2px] font-[hatch] font-bold leading-none tracking-[3px] text-coral-pink caret-transparent focus:ring-0"
                   autoComplete="off"
                   maxLength={12}
                   size={12}

@@ -9,7 +9,7 @@ export const Login = () => {
   const [cookies, setCookies, removeCookies] = useCookies([
     'showTerminal',
     'switchOffAnimation',
-    'homeAnimation',
+    'topAnimation',
   ])
   const [showTerminal, setShowTerminal] = useState(true)
 
@@ -18,7 +18,7 @@ export const Login = () => {
       state.current = true
       setShowTerminal(cookies.showTerminal !== 'false')
       removeCookies('switchOffAnimation')
-      removeCookies('homeAnimation')
+      removeCookies('topAnimation')
     }
   }, [cookies.showTerminal, removeCookies])
 
