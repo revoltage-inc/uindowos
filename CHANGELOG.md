@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.8](https://github.com/revoltage-inc/uindowos/compare/v0.0.7...v0.0.8) (2022-10-22)
+
+
+### Bug Fixes
+
+* 66 add Top Page ([10a7a4a](https://github.com/revoltage-inc/uindowos/commit/10a7a4a5f56c9d87dbe98d78d0f91a3ba69b7d7c))
+* 66 change file position ([cbc105e](https://github.com/revoltage-inc/uindowos/commit/cbc105e3c25ad8b06c81a62a5a3c1e0fda338e62))
+* 66 fix class ([3f1770b](https://github.com/revoltage-inc/uindowos/commit/3f1770b0446762476953a8cb9e84038cb4cb5f1c))
+
 ## [0.0.7](https://github.com/revoltage-inc/uindowos/compare/v0.0.6...v0.0.7) (2022-10-22)
 
 
