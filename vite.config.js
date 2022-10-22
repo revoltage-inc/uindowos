@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       '@style': resolve(__dirname, './src/styles/'),
       '@css': resolve(__dirname, './public/css/'),
-      '@svg': resolve(__dirname, './public/svg/'),
+      '@svg': resolve(__dirname, './src/assets/svg/'),
       '@lib': resolve(__dirname, './src/libs/'),
     },
   },

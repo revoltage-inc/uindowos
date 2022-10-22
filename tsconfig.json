@@ -17,7 +17,7 @@
     "paths": {
       "@style*": [ "src/styles/*" ],
       "@css*": [ "public/css*"],
-      "@svg*": [ "public/svg*"],
+      "@svg*": [ "src/assets/svg*"],
       "@lib*": [ "src/libs*"]
     },
     "incremental": true
