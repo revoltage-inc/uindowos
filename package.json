@@ -4,7 +4,7 @@
   "description": "This fan site that reproduce UindowOS of Ui Shigure",
   "author": "@yogarasu",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
