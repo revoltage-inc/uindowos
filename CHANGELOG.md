@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/revoltage-inc/uindowos/compare/v0.0.6...v0.0.7) (2022-10-22)
+
+
+### Bug Fixes
+
+* 63 add 404 Page ([5700faf](https://github.com/revoltage-inc/uindowos/commit/5700faf4df5b5c7a76dc2352c8efcaa632be5b72))
+
 ## [0.0.6](https://github.com/revoltage-inc/uindowos/compare/v0.0.5...v0.0.6) (2022-10-22)
 
 
