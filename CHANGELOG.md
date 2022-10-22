@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.5](https://github.com/revoltage-inc/uindowos/compare/v0.0.4...v0.0.5) (2022-10-22)
+
+
+### Bug Fixes
+
+* 3 add Login Page ([f8ce3ca](https://github.com/revoltage-inc/uindowos/commit/f8ce3ca2c68e07bad73ac5745dd69277e296bd7e))
+* 3 add stories ([651945f](https://github.com/revoltage-inc/uindowos/commit/651945fa6539fe129de045d1fffea08890091ad0))
+* 3 assetsの配置を変更 ([1e84f29](https://github.com/revoltage-inc/uindowos/commit/1e84f29df0fc7b795568358ed870dc331ec822e5))
+* 3 assetsの配置を変更 ([97a1cae](https://github.com/revoltage-inc/uindowos/commit/97a1cae4abfea8bf705f25877e6be0900f7a9523))
+* 3 change CSSModule file position ([0aa9fca](https://github.com/revoltage-inc/uindowos/commit/0aa9fcafb36c51b67f8f112852c9173786af81aa))
+* 3 change default import ([e0a7f43](https://github.com/revoltage-inc/uindowos/commit/e0a7f4367fb38897de0e3598499d559890142734))
+* 3 change layout file ([1bbd044](https://github.com/revoltage-inc/uindowos/commit/1bbd04490139633fadc8784c65a9ea20c67ed862))
+* 3 change layout file ([120855b](https://github.com/revoltage-inc/uindowos/commit/120855be60ad5d79de69790dc17359348bb0dfeb))
+* 3 change svg file position ([9954be7](https://github.com/revoltage-inc/uindowos/commit/9954be769e2686b2c5f56a7e54a863e5dd6da135))
+
 ## [0.0.4](https://github.com/revoltage-inc/uindowos/compare/v0.0.3...v0.0.4) (2022-10-22)
 
 
