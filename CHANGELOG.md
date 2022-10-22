@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.9](https://github.com/revoltage-inc/uindowos/compare/v0.0.8...v0.0.9) (2022-10-22)
+
+
+### Bug Fixes
+
+* 69 add screen reader text ([4ba2190](https://github.com/revoltage-inc/uindowos/commit/4ba2190fa221e6d4843e7f57a7f0931133a0a63a))
+* 69 add translation text ([9fc134c](https://github.com/revoltage-inc/uindowos/commit/9fc134c47f24ad283d9957355651ccb23c236ffe))
+* 69 fix viewport ([fd93ee3](https://github.com/revoltage-inc/uindowos/commit/fd93ee3fc7f67070ee737587d621f6d6b02f15b2))
+
 ## [0.0.8](https://github.com/revoltage-inc/uindowos/compare/v0.0.7...v0.0.8) (2022-10-22)
 
 
