@@ -7,7 +7,7 @@ export function terminalAnimation() {
   const timeline4 = gsap.timeline()
 
   timeline
-    // 白背景を徐々に透明に変化させて非表示化
+    // Hide by gradually changing the white background to transparent
     .to('#overlay', {
       display: 'block',
       duration: 0,
@@ -26,7 +26,7 @@ export function terminalAnimation() {
       duration: 0,
       ease: Power2.easeOut,
     })
-    // ターミナルを表示
+    // Show terminal
     .fromTo(
       '#terminal-wrap',
       {
@@ -38,7 +38,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // ターミナルを上に移動する
+    // Move terminal up
     .to(
       '#terminal',
       {
@@ -48,7 +48,7 @@ export function terminalAnimation() {
       },
       '-=0.4'
     )
-    // ローディングのバーを伸長する
+    // Extend the loading bar
     .to(
       '#loading',
       {
@@ -58,7 +58,7 @@ export function terminalAnimation() {
       },
       '-=1'
     )
-    // 右側の雨粒を表示して下に移動する
+    // Show raindrops on the right and move down
     .to(
       '#right-rain',
       {
@@ -77,7 +77,7 @@ export function terminalAnimation() {
       },
       '-=1'
     )
-    // 左側の雨粒を表示して下に移動する
+    // Show raindrops on the left and move down
     .to(
       '#left-rain',
       {
@@ -96,7 +96,7 @@ export function terminalAnimation() {
       },
       '-=0.2'
     )
-    // ターミナルを拡大する
+    // Scale up of terminal
     .to(
       '#terminal',
       {
@@ -117,7 +117,7 @@ export function terminalAnimation() {
       },
       '-=1'
     )
-    // ターミナルの顔を下から表示する
+    // Show terminal of face from below
     .to(
       '#terminal #eye',
       {
@@ -145,7 +145,7 @@ export function terminalAnimation() {
       },
       '-=0.9'
     )
-    // ターミナルの舌を出す
+    // Stick out terminal tongue
     .to('#terminal #tongue', {
       display: 'block',
       duration: 0,
@@ -156,7 +156,7 @@ export function terminalAnimation() {
       duration: 0.2,
       ease: Power2.easeOut,
     })
-    // 右側の雨粒を下に移動して非表示にする
+    // Move the right raindrop down to hide it
     .to(
       '#right-rain',
       {
@@ -175,7 +175,7 @@ export function terminalAnimation() {
       },
       '-=0.8'
     )
-    // 傘を表示して0度まで回転する
+    // Show umbrella and rotate to 0 degrees
     .to(
       '#umbrella',
       {
@@ -196,7 +196,7 @@ export function terminalAnimation() {
       },
       '-=1'
     )
-    // 左の雨粒を下に移動して非表示にする
+    // Move the left raindrop down to hide it
     .to(
       '#left-rain',
       {
@@ -215,7 +215,7 @@ export function terminalAnimation() {
       },
       '-=0.6'
     )
-    // 傘を下に移動する
+    // Move the umbrella down
     .to('#umbrella', {
       bottom: '0px',
       duration: 1,
@@ -223,7 +223,7 @@ export function terminalAnimation() {
     })
 
   timeline2
-    // 「U」の文字をバウンド表示する
+    // Bouncing the letter "U"
     .to('#text-UindowOS #char-U', {
       display: 'block',
       delay: 2,
@@ -256,7 +256,7 @@ export function terminalAnimation() {
       },
       '-=0.1'
     )
-    // 「i」の文字をバウンド表示する
+    // Bouncing the letter "i"
     .to(
       '#text-UindowOS #char-i',
       {
@@ -296,7 +296,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // 「n」の文字をバウンド表示する
+    // Bouncing the letter "n"
     .to(
       '#text-UindowOS #char-n',
       {
@@ -336,7 +336,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // 「d」の文字をバウンド表示する
+    // Bouncing the letter "d"
     .to(
       '#text-UindowOS #char-d',
       {
@@ -376,7 +376,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // 「o」の文字をバウンド表示する
+    // Bouncing the letter "o"
     .to(
       '#text-UindowOS #char-o',
       {
@@ -416,7 +416,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // 「w」の文字をバウンド表示する
+    // Bouncing the letter "w"
     .to(
       '#text-UindowOS #char-w',
       {
@@ -456,7 +456,7 @@ export function terminalAnimation() {
       },
       '-=0.3'
     )
-    // 「O」の文字を手書き風に表示する
+    // Bouncing the letter "O"
     .fromTo(
       '#text-UindowOS #char-O',
       {
@@ -577,7 +577,7 @@ export function terminalAnimation() {
       },
       '-=0.1'
     )
-    // 「S」の文字を手書き風に表示する
+    // Bouncing the letter "S"
     .to(
       '#text-UindowOS #char-S',
       0.5,
@@ -654,7 +654,7 @@ export function terminalAnimation() {
   )
 
   timeline4
-    // ターミナルの目を瞬きさせる
+    // Blink the eyes of the terminal
     .to('#terminal #left-eye,#right-eye', { height: '12px', duration: 2 })
     .fromTo(
       '#terminal #left-eye,#right-eye',
@@ -681,7 +681,7 @@ export function terminalAnimation() {
         ease: Power2.easeOut,
       }
     )
-    // ターミナル全体にぼかしをかけて縮小する
+    // Blur and shrink the entire terminal
     .fromTo(
       '#terminal-wrap',
       {
@@ -695,7 +695,7 @@ export function terminalAnimation() {
         ease: Power2.easeOut,
       }
     )
-    // ターミナルをフェードアウトさせて非表示にする
+    // Hide the terminal by fading it out
     .fromTo(
       '#terminal-wrap',
       {

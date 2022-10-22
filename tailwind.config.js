@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       cursor: {
-        default: 'url(/svg/cursor.svg) 0 0, default',
+        default: 'url(/svg/common/cursor.svg) 0 0, default',
       },
       colors: {
         main: '#ff7b88',

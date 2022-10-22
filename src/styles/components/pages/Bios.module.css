@@ -1,0 +1,112 @@
+.circleFlare {
+  @apply absolute top-1/2 left-1/2 z-10 w-[300px] -translate-y-1/2 -translate-x-1/2 transform rounded-full bg-white;
+  background: radial-gradient(
+    closest-side at center,
+    hsl(4 5% 100% / 100%) 10%,
+    hsl(4 5% 100% / 100%) 15%,
+    hsl(4 10% 70% / 70%) 30%,
+    hsl(4 0% 50% / 30%) 55%,
+    hsl(4 0% 10% / 5%) 75%,
+    transparent 100%
+  );
+  filter: blur(2px);
+}
+
+.stickFlare {
+  @apply absolute top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 transform items-center;
+
+  & .rightFlare {
+    @apply h-[16px] w-1/2;
+    background: radial-gradient(
+      ellipse at center left,
+      hsl(4 20% 90% / 80%) 0%,
+      hsl(4 10% 70% / 40%) 50%,
+      transparent 90%
+    );
+    filter: opacity(75%);
+  }
+
+  & .leftFlare {
+    @apply h-[16px] w-1/2;
+    background: radial-gradient(
+      ellipse at center right,
+      hsl(4 20% 90% / 80%) 0%,
+      hsl(4 10% 70% / 40%) 50%,
+      transparent 90%
+    );
+    filter: opacity(75%);
+  }
+}
+
+.screen {
+  @apply z-10 min-h-screen w-full break-words p-8 font-[hatch] font-medium leading-relaxed text-white md:p-16;
+  display: inline-block;
+  animation: shake 0.1s infinite, flicker 0.1s infinite;
+
+  &:before {
+    display: block;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+    background-size: 100% 2px, 3px 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: ' ';
+    pointer-events: none;
+  }
+
+  & a,
+  & p,
+  & span {
+    /* text-shadow: -2px 0px 2px #293373; */
+    filter: blur(0.03em);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(0.06em, 0.02em) rotateZ(0deg);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  10% {
+    opacity: 0.98;
+  }
+  20% {
+    opacity: 0.97;
+  }
+  30% {
+    opacity: 0.96;
+  }
+  40% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.94;
+  }
+  60% {
+    opacity: 0.97;
+  }
+  70% {
+    opacity: 0.96;
+  }
+  80% {
+    opacity: 0.97;
+  }
+  90% {
+    opacity: 0.98;
+  }
+  100% {
+    opacity: 0.96;
+  }
+}

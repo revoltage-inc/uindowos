@@ -15,6 +15,9 @@
     "update": "npx ncu -u && npm install"
   },
   "dependencies": {
+    "@babylonjs/core": "^5.29.0",
+    "@babylonjs/materials": "^5.29.0",
+    "@babylonjs/procedural-textures": "^5.29.0",
     "@headlessui/react": "^1.7.3",
     "@hookform/resolvers": "^2.9.10",
     "@prisma/client": "^4.5.0",
