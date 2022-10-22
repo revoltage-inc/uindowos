@@ -9,6 +9,7 @@ import { detect } from 'detect-browser'
 import { Switch } from './Switch'
 
 export const LoginForm = () => {
+  const state = useRef(false)
   const passwordRef = useRef<HTMLInputElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)
   const nextButtonRef = useRef<HTMLButtonElement>(null)
@@ -17,7 +18,8 @@ export const LoginForm = () => {
   const [showSwitch, setShowSwitch] = useState(false)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (!state.current && typeof window !== 'undefined') {
+      state.current = true
       // Run terminal animation only on first page load
       setAnimation(cookies.showTerminal !== 'false')
       setCookie('showTerminal', false)
