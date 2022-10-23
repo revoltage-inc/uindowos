@@ -1,10 +1,12 @@
 import enText from './en'
 
-const text = structuredClone(enText)
-text.ENGLISH = '英語'
-text.JAPANESE = '日本語'
-text.PAGE_NOT_FOUND = 'ページが見つかりません'
-text.TOP = 'トップ'
-text.LOGIN = 'ログイン'
+const text = {
+  ...enText,
+  ENGLISH: '英語',
+  JAPANESE: '日本語',
+  PAGE_NOT_FOUND: 'ページが見つかりません',
+  TOP: 'トップ',
+  LOGIN: 'ログイン',
+}
 
 export default text
