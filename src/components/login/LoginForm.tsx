@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect, KeyboardEvent } from 'react'
 import { useCookies } from 'react-cookie'
 import { gsap, Power2 } from 'gsap'
-import Umbrella2SVG from '@svg/login/umbrella2.svg'
-import BurstSVG from '@svg/login/burst.svg'
-import NextButtonSVG from '@svg/login/next-button.svg'
-import styles from '@style/components/login/LoginForm.module.css'
+import Umbrella2SVG from '@assets/svg/login/umbrella2.svg'
+import BurstSVG from '@assets/svg/login/burst.svg'
+import NextButtonSVG from '@assets/svg/login/next-button.svg'
+import styles from '@assets/css/components/login/LoginForm.module.css'
 import { Switch } from '../common/Switch'
 
 export const LoginForm = () => {

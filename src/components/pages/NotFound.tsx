@@ -1,4 +1,4 @@
-import { useLocale } from '@lib/locale'
+import { useLocale } from '@libs/locale'
 
 export const NotFound = () => {
   const { text } = useLocale()

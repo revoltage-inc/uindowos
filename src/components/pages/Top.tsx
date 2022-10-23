@@ -1,10 +1,10 @@
-import TerminalSVG from '@svg/top/terminal.svg'
-import BatterySVG from '@svg/top/battery.svg'
-import ImeSVG from '@svg/top/ime.svg'
-import WifiSVG from '@svg/top/wifi.svg'
+import TerminalSVG from '@assets/svg/top/terminal.svg'
+import BatterySVG from '@assets/svg/top/battery.svg'
+import ImeSVG from '@assets/svg/top/ime.svg'
+import WifiSVG from '@assets/svg/top/wifi.svg'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
-import { wallpaperAnimation, iconAnimation } from '@lib/animation/TopAnimation'
+import { wallpaperAnimation, iconAnimation } from '@libs/animation/TopAnimation'
 import { useCookies } from 'react-cookie'
 
 export const Top = () => {

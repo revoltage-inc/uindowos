@@ -1,7 +1,7 @@
-import { useWindow } from '@lib/window'
+import { useWindow } from '@libs/window'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Bios } from '../components/pages/Bios'
+import { Bios } from '@components/pages/Bios'
 
 const TopPage: NextPage = () => {
   const { width } = useWindow()

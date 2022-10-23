@@ -1,9 +1,9 @@
-import { useWindow } from '@lib/window'
-import { useLocale } from '@lib/locale'
+import { useWindow } from '@libs/window'
+import { useLocale } from '@libs/locale'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Switch } from '../components/common/Switch'
-import { Top } from '../components/pages/Top'
+import { Switch } from '@components/common/Switch'
+import { Top } from '@components/pages/Top'
 
 const TopPage: NextPage = () => {
   const { text } = useLocale()

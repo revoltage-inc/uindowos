@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
-import { terminalAnimation } from '@lib/animation/TerminalAnimation'
-import TerminalEdgeSVG from '@svg/login/terminal/terminal-edge.svg'
-import TerminalEyeSVG from '@svg/login/terminal/terminal-eye.svg'
-import TerminalMouthSVG from '@svg/login/terminal/terminal-mouth.svg'
-import TerminalTongueSVG from '@svg/login/terminal/terminal-tongue.svg'
-import RainSVG from '@svg/login/rain.svg'
-import UmbrellaSVG from '@svg/login/umbrella.svg'
+import { terminalAnimation } from '@libs/animation/TerminalAnimation'
+import TerminalEdgeSVG from '@assets/svg/login/terminal/terminal-edge.svg'
+import TerminalEyeSVG from '@assets/svg/login/terminal/terminal-eye.svg'
+import TerminalMouthSVG from '@assets/svg/login/terminal/terminal-mouth.svg'
+import TerminalTongueSVG from '@assets/svg/login/terminal/terminal-tongue.svg'
+import RainSVG from '@assets/svg/login/rain.svg'
+import UmbrellaSVG from '@assets/svg/login/umbrella.svg'
 
 export const Terminal = () => {
   const state = useRef(false)

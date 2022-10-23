@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { switchOnAnimation, switchOffAnimation } from '@lib/animation/SwitchAnimation'
-import TitleSVG from '@svg/common/title.svg'
+import { switchOnAnimation, switchOffAnimation } from '@libs/animation/SwitchAnimation'
+import TitleSVG from '@assets/svg/common/title.svg'
 import { useCookies } from 'react-cookie'
 
 interface Args {
