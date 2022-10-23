@@ -24,7 +24,7 @@ export const Top = () => {
 
   return (
     <>
-      <div className="relative top-0 left-0 flex h-full w-full flex-col bg-main">
+      <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">
           <div id="wallpaper" className="absolute top-0 left-0 aspect-[2560/7200] h-auto w-full">
