@@ -11,6 +11,7 @@ const TopPage: NextPage = () => {
     <>
       <Head>
         <title>UindowOS | {text.TOP}</title>
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1" />
       </Head>
       <main>
         <Switch />
