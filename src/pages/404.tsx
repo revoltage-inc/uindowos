@@ -9,7 +9,7 @@ const NotFoundPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>UindowOS | 404 {text.PAGE_NOT_FOUND}</title>
+        <title>{`UindowOS | 404 ${text.PAGE_NOT_FOUND}`}</title>
         <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1" />
       </Head>
       <main>
