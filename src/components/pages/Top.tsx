@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { wallpaperAnimation, iconAnimation } from '@libs/animation/TopAnimation'
 import { useCookies } from 'react-cookie'
-import { Menu } from '@components/top/Menu'
+import { Menu } from '@components/parts/Top/Menu'
 
 export const Top = () => {
   const state = useRef(false)

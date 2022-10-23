@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useCookies } from 'react-cookie'
-import { Terminal } from '../login/Terminal'
-import { LoginForm } from '../login/LoginForm'
+import { Terminal } from '@components/parts/Login/Terminal'
+import { LoginForm } from '@components/parts/Login/LoginForm'
 
 export const Login = () => {
   const state = useRef(false)

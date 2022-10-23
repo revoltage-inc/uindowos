@@ -5,7 +5,7 @@ import Umbrella2SVG from '@assets/svg/login/umbrella2.svg'
 import BurstSVG from '@assets/svg/login/burst.svg'
 import NextButtonSVG from '@assets/svg/login/next-button.svg'
 import styles from '@assets/css/components/login/LoginForm.module.css'
-import { Switch } from '../common/Switch'
+import { Switch } from '@components/common/Switch'
 
 export const LoginForm = () => {
   const state = useRef(false)
