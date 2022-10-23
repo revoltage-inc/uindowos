@@ -5,7 +5,6 @@ import Umbrella2SVG from '@svg/login/umbrella2.svg'
 import BurstSVG from '@svg/login/burst.svg'
 import NextButtonSVG from '@svg/login/next-button.svg'
 import styles from '@style/components/login/LoginForm.module.css'
-import { detect } from 'detect-browser'
 import { Switch } from '../common/Switch'
 
 export const LoginForm = () => {
@@ -13,7 +12,6 @@ export const LoginForm = () => {
   const passwordRef = useRef<HTMLInputElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)
   const nextButtonRef = useRef<HTMLButtonElement>(null)
-  const browser = detect()
   const [cookies, setCookie] = useCookies(['showTerminal'])
   const [showSwitch, setShowSwitch] = useState(false)
 
@@ -53,20 +51,12 @@ export const LoginForm = () => {
 
     if (caretRef.current && passwordRef.current) {
       const caretPosition = passwordRef.current.selectionStart
-        ? passwordRef.current.selectionStart
+        ? passwordRef.current.selectionStart >= 12
+          ? 12
+          : passwordRef.current.selectionStart
         : 0
 
-      // FIX: For some reason the position of the caret shifts for each browser, so provisional support
-      let caretLeft = `calc(${caretPosition * 0.58}rem + 0.4rem)`
-      if (browser) {
-        if (browser.name === 'safari') {
-          caretLeft = `calc(${caretPosition * 0.645}rem + 0.4rem)`
-        } else if (browser.name === 'firefox') {
-          caretLeft = `calc(${caretPosition * 0.6043}rem + 0.4rem)`
-        }
-      }
-
-      caretRef.current.style.left = caretLeft
+      caretRef.current.style.left = `calc(${caretPosition * 10}px + 6px)`
     }
 
     setTimeout(() => {
