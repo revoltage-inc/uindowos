@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.11](https://github.com/revoltage-inc/uindowos/compare/v0.0.10...v0.0.11) (2022-10-23)
+
+
+### Bug Fixes
+
+* 75 remove private ([211f069](https://github.com/revoltage-inc/uindowos/commit/211f069fc20a59ae3bc6d36c52981bfb83771924))
+
 ## [0.0.10](https://github.com/revoltage-inc/uindowos/compare/v0.0.9...v0.0.10) (2022-10-22)
 
 
