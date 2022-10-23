@@ -108,15 +108,6 @@ export function terminalAnimation() {
       },
       '-=0.2'
     )
-    .to(
-      '#terminal #edge .button1,.button2',
-      {
-        display: 'none',
-        duration: 0,
-        ease: Power2.easeOut,
-      },
-      '-=1'
-    )
     // Show terminal of face from below
     .to(
       '#terminal #eye',
