@@ -1,9 +1,8 @@
 {
   "name": "uindowos",
   "version": "0.0.10",
-  "description": "This fan site that reproduce UindowOS of Ui Shigure",
+  "description": "Ui Shigure's unofficial fan site",
   "author": "@yogarasu",
-  "private": true,
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
