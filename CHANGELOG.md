@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.0.12](https://github.com/revoltage-inc/uindowos/compare/v0.0.11...v0.0.12) (2022-11-05)
+
+
+### Bug Fixes
+
+* 73 add next-i18next ([0712d1e](https://github.com/revoltage-inc/uindowos/commit/0712d1e155d786b40cc4197b3e00fc89d5a2aabf))
+* 73 css adjustment ([030157c](https://github.com/revoltage-inc/uindowos/commit/030157c68ff388884d44878555c221ad038d730d))
+* 73 fix alias path ([5fea750](https://github.com/revoltage-inc/uindowos/commit/5fea7503bfb2409d65b43e023ce2bf7a619e1aca))
+* 73 fix alias path ([43a032b](https://github.com/revoltage-inc/uindowos/commit/43a032ba69a3c178d522d3f77448890cb6b47def))
+* 73 fix an issue where eye icon was displayed for password input in edge ([8662adc](https://github.com/revoltage-inc/uindowos/commit/8662adcf935fd3354933c46aa73f8cab526b9647))
+* 73 fix component file position ([e17667a](https://github.com/revoltage-inc/uindowos/commit/e17667abe01832f2c54c703b258609872f378a28))
+* 73 fix next/image component not loading images ([e94f26b](https://github.com/revoltage-inc/uindowos/commit/e94f26b772dde8a6d8e0f1372ee71cfe3795f2f9))
+* 73 fix storybook error ([c276e14](https://github.com/revoltage-inc/uindowos/commit/c276e143ee7bb38fd1c84fc7a1fad22facf28b82))
+* 73 fix title tag ([2c21848](https://github.com/revoltage-inc/uindowos/commit/2c21848a3e100ad9059bf135c05735acc9c544af))
+* 73 fix viewport ([2eaf5e5](https://github.com/revoltage-inc/uindowos/commit/2eaf5e51e1669cfeada73e013cc28391decb6cc7))
+* 73 fix viewport ([2a4a4f4](https://github.com/revoltage-inc/uindowos/commit/2a4a4f4a47551d4df3a956a56deb782c101e98e7))
+* 73 refactoring ([7d825e9](https://github.com/revoltage-inc/uindowos/commit/7d825e92ddf2b2a9c1135d1f569008d697f5c981))
+* 73 refactoring ([6f775f7](https://github.com/revoltage-inc/uindowos/commit/6f775f782f9883113a4c0bb2936afe1fbb9496f9))
+* 73 remove detect-browser ([a844ba4](https://github.com/revoltage-inc/uindowos/commit/a844ba4dff408da3d9e922af7bb97f51354bb30b))
+* 73 remove unnecessary processing ([03a6329](https://github.com/revoltage-inc/uindowos/commit/03a6329053c717b7e01a9a61c30ea1d345a21293))
+* 73 separate the menu ([a713f47](https://github.com/revoltage-inc/uindowos/commit/a713f4728c1989106e26e29d3941fd8a57de60ae))
+* 73 update Node.js and npm ([71c80bf](https://github.com/revoltage-inc/uindowos/commit/71c80bfccdb38bcf531f816b302b1f744285e5a3))
+* 73 update package ([1c54c68](https://github.com/revoltage-inc/uindowos/commit/1c54c68a154ad9b84ae8502c1b971efd473d8823))
+
 ## [0.0.11](https://github.com/revoltage-inc/uindowos/compare/v0.0.10...v0.0.11) (2022-10-23)
 
 
