@@ -29,7 +29,7 @@ const LoginPage: NextPage = () => {
 
 export const getServerSideProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['translation'])),
+    ...(await serverSideTranslations(locale, ['common'])),
   },
 })
 

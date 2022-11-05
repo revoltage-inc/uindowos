@@ -1,18 +1,15 @@
 import { useWindow } from '@libs/window'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { NotFound } from '@components/pages/NotFound'
 
 const NotFoundPage: NextPage = () => {
-  const { t } = useTranslation()
   const { width } = useWindow()
 
   return (
     <>
       <Head>
-        <title>{`UindowOS | 404 ${t('pageNotFound')}`}</title>
+        <title>UindowOS | 404 Page Not Found</title>
         <meta
           name="viewport"
           content={`width=${
@@ -26,11 +23,5 @@ const NotFoundPage: NextPage = () => {
     </>
   )
 }
-
-export const getServerSideProps = async ({ locale }: { locale: string }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ['translation'])),
-  },
-})
 
 export default NotFoundPage
