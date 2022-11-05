@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.13](https://github.com/revoltage-inc/uindowos/compare/v0.0.12...v0.0.13) (2022-11-05)
+
+
+### Bug Fixes
+
+* 106 fixed not to translate 404 page ([db529cf](https://github.com/revoltage-inc/uindowos/commit/db529cfb480ed4319233b173d106e5f64371ec3d))
+
 ## [0.0.12](https://github.com/revoltage-inc/uindowos/compare/v0.0.11...v0.0.12) (2022-11-05)
 
 
