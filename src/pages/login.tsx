@@ -1,17 +1,18 @@
 import { useWindow } from '@libs/window'
-import { useLocale } from '@libs/locale'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Login } from '@components/pages/Login'
 
 const LoginPage: NextPage = () => {
-  const { text } = useLocale()
+  const { t } = useTranslation()
   const { width } = useWindow()
 
   return (
     <>
       <Head>
-        <title>{`UindowOS | ${text.LOGIN}`}</title>
+        <title>{`UindowOS | ${t('login')}`}</title>
         <meta
           name="viewport"
           content={`width=${
@@ -25,5 +26,11 @@ const LoginPage: NextPage = () => {
     </>
   )
 }
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['translation'])),
+  },
+})
 
 export default LoginPage

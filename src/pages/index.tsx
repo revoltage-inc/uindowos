@@ -1,18 +1,19 @@
 import { useWindow } from '@libs/window'
-import { useLocale } from '@libs/locale'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Switch } from '@components/common/Switch'
 import { Top } from '@components/pages/Top'
 
 const TopPage: NextPage = () => {
-  const { text } = useLocale()
+  const { t } = useTranslation()
   const { width } = useWindow()
 
   return (
     <>
       <Head>
-        <title>{`UindowOS | ${text.TOP}`}</title>
+        <title>{`UindowOS | ${t('top')}`}</title>
         <meta
           name="viewport"
           content={`width=${
@@ -27,5 +28,11 @@ const TopPage: NextPage = () => {
     </>
   )
 }
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['translation'])),
+  },
+})
 
 export default TopPage

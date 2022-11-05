@@ -1,4 +1,5 @@
 const path = require('path')
+const { i18n } = require('./next-i18next.config')
 
 /** @type {import('next').NextConfig} */
 module.exports = {
@@ -8,10 +9,7 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
     disableStaticImages: true,
   },
-  i18n: {
-    locales: ['en', 'ja'],
-    defaultLocale: 'ja',
-  },
+  i18n,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
