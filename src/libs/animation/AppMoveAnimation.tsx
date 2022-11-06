@@ -1,23 +1,6 @@
-import { gsap, Power0, Power4 } from 'gsap'
+import { gsap, Power4 } from 'gsap'
 
-export function wallpaperAnimation() {
-  const timeline = gsap.timeline()
-
-  timeline.fromTo(
-    '#wallpaper',
-    {
-      top: '0%',
-    },
-    {
-      top: '-225%',
-      duration: 60,
-      repeat: -1,
-      ease: Power0.easeInOut,
-    }
-  )
-}
-
-export function iconAnimation() {
+export function appMoveAnimation() {
   const timeline = gsap.timeline({ delay: -0.6 })
   const timeline2 = gsap.timeline({ delay: -0.8 })
 

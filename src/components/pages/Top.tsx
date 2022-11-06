@@ -1,29 +1,35 @@
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
-import { wallpaperAnimation, iconAnimation } from '@libs/animation/TopAnimation'
-import { useCookies } from 'react-cookie'
+import { useEffect } from 'react'
+import { wallpaperAnimation } from '@libs/animation/WallpaperAnimation'
+import { appMoveAnimation } from '@libs/animation/AppMoveAnimation'
 import { Menu } from '@components/parts/Top/Menu'
+import { Switch } from '@components/common/Switch'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@libs/store'
+import { uindowosSlice } from '@libs/store/uindowos'
 
 export const Top = () => {
-  const state = useRef(false)
-  const [cookies, setCookie] = useCookies(['switchOffAnimation', 'topAnimation'])
+  const dispatch = useDispatch()
+  const state = useSelector((state: RootState) => state.uindowos)
 
   useEffect(() => {
-    if (!state.current && typeof window !== 'undefined') {
-      state.current = true
-
-      wallpaperAnimation()
-      if (cookies.topAnimation !== 'false') {
-        iconAnimation()
-      }
-
-      setCookie('topAnimation', false)
-      setCookie('switchOffAnimation', false)
+    wallpaperAnimation()
+    if (state.uindowos.appMoveAnimation) {
+      appMoveAnimation()
     }
-  })
+
+    const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+    newUindowOS.terminalAnimation = false
+    newUindowOS.switchOffAnimation = false
+    newUindowOS.appMoveAnimation = false
+    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
+      <Switch type="off" />
       <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">

@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Switch } from '@components/common/Switch'
 import { Top } from '@components/pages/Top'
 
 const TopPage: NextPage = () => {
@@ -22,7 +21,6 @@ const TopPage: NextPage = () => {
         />
       </Head>
       <main>
-        <Switch />
         <Top />
       </main>
     </>
