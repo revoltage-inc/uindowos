@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.14](https://github.com/revoltage-inc/uindowos/compare/v0.0.13...v0.0.14) (2022-11-06)
+
+
+### Bug Fixes
+
+* 109 change state management from react-cookie to redux ([79427d0](https://github.com/revoltage-inc/uindowos/commit/79427d02723d0b33689b823b38f30fcd2780e1ba))
+* 109 update package ([2820fe8](https://github.com/revoltage-inc/uindowos/commit/2820fe82c1d7383980a5ebb7accbc59e0b361311))
+
 ## [0.0.13](https://github.com/revoltage-inc/uindowos/compare/v0.0.12...v0.0.13) (2022-11-05)
 
 
