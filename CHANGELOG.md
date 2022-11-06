@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.15](https://github.com/revoltage-inc/uindowos/compare/v0.0.14...v0.0.15) (2022-11-06)
+
+
+### Bug Fixes
+
+* 112 add an empty child element to the Link tag ([517d241](https://github.com/revoltage-inc/uindowos/commit/517d241cf5f38c34540c606d8f881177dcbf51cd))
+* 112 add store wrap to storybook ([cbe50ac](https://github.com/revoltage-inc/uindowos/commit/cbe50ac14ff8a2f7efac62490bdd1c6f84fc4389))
+
 ## [0.0.14](https://github.com/revoltage-inc/uindowos/compare/v0.0.13...v0.0.14) (2022-11-06)
 
 
