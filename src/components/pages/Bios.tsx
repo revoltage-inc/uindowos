@@ -97,13 +97,17 @@ export const Bios = () => {
                 href="https://www.youtube.com/channel/UCt30jJgChL8qeT9VPadidSw"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></Link>
+              >
+                <></>
+              </Link>
               <Link
                 id="text9"
                 href="https://twitter.com/UindowOS"
                 target="_blank"
                 rel="noopener noreferrer"
-              ></Link>
+              >
+                <></>
+              </Link>
             </div>
           </div>
         </div>
