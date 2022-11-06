@@ -4,6 +4,7 @@ import { wallpaperAnimation } from '@libs/animation/WallpaperAnimation'
 import { appMoveAnimation } from '@libs/animation/AppMoveAnimation'
 import { Menu } from '@components/parts/Top/Menu'
 import { Switch } from '@components/common/Switch'
+import { Window } from '@components/common/Window'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@libs/store'
 import { uindowosSlice } from '@libs/store/uindowos'
@@ -112,7 +113,11 @@ export const Top = () => {
             <Image src="/img/top/desktop/mail.png" width={48} height={48} alt="" />
           </div>
         </div>
-        <div id="window" className="absolute top-0 left-0 z-40 h-full w-full"></div>
+        <div id="window" className="absolute top-0 left-0 z-40 h-full w-full">
+          <Window>
+            <p>test</p>
+          </Window>
+        </div>
       </div>
     </>
   )
