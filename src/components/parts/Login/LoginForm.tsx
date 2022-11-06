@@ -1,28 +1,27 @@
-import { useRef, useState, useEffect, KeyboardEvent } from 'react'
-import { useCookies } from 'react-cookie'
+import { useRef, useEffect, useState, KeyboardEvent } from 'react'
 import { gsap, Power2 } from 'gsap'
 import Umbrella2SVG from '@assets/svg/login/umbrella2.svg'
 import BurstSVG from '@assets/svg/login/burst.svg'
 import NextButtonSVG from '@assets/svg/login/next-button.svg'
 import styles from '@assets/css/components/login/LoginForm.module.css'
 import { Switch } from '@components/common/Switch'
+import { useSelector } from 'react-redux'
+import { RootState } from '@libs/store'
 
 export const LoginForm = () => {
-  const state = useRef(false)
+  const state = useSelector((state: RootState) => state.uindowos)
+  const [showSwitch, setShowSwitch] = useState(false)
+
   const passwordRef = useRef<HTMLInputElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)
   const nextButtonRef = useRef<HTMLButtonElement>(null)
-  const [cookies, setCookie] = useCookies(['showTerminal'])
-  const [showSwitch, setShowSwitch] = useState(false)
 
   useEffect(() => {
-    if (!state.current && typeof window !== 'undefined') {
-      state.current = true
-      // Run terminal animation only on first page load
-      setAnimation(cookies.showTerminal !== 'false')
-      setCookie('showTerminal', false)
-    }
-  }, [cookies.showTerminal, setCookie])
+    // Run terminal animation only on first page load
+    startAnimation(state.uindowos.terminalAnimation)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const showCaret = () => {
     if (caretRef.current) {
@@ -67,25 +66,27 @@ export const LoginForm = () => {
   const handleClick = () => {
     if (nextButtonRef.current && !nextButtonRef.current.classList.contains(styles.shrink)) {
       nextButtonRef.current.classList.add(styles.shrink)
+
       setTimeout(() => {
         if (nextButtonRef.current) {
           nextButtonRef.current.classList.remove(styles.shrink)
+
           setShowSwitch(true)
         }
       }, 100)
     }
   }
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
       setShowSwitch(true)
     }
   }
 
-  const setAnimation = (showTerminal: boolean) => {
+  const startAnimation = (terminalAnimation: boolean) => {
     // Delay by terminal animation time
     const timeline = gsap.timeline({
-      duration: showTerminal ? 5.6 : 0,
+      duration: terminalAnimation ? 5.6 : 0,
     })
 
     timeline

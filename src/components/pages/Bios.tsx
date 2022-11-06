@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/dist/TextPlugin'
@@ -7,24 +7,28 @@ import { TurnOnAnimation } from '@libs/animation/TurnOnAnimation'
 import { BiosTextAnimation } from '@libs/animation/BiosTextAnimation'
 import { FlareAnimation } from '@libs/animation/FlareAnimation'
 import { useRouter } from 'next/router'
-import { useCookies } from 'react-cookie'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@libs/store'
+import { uindowosSlice } from '@libs/store/uindowos'
 
 export const Bios = () => {
-  const state = useRef(false)
-  const ref = useRef(null)
   const router = useRouter()
-  // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookie, removeCookies] = useCookies(['showTerminal'])
+  const dispatch = useDispatch()
+  const state = useSelector((state: RootState) => state.uindowos)
 
   useEffect(() => {
-    if (!state.current && typeof window !== 'undefined') {
-      state.current = true
-      removeCookies('showTerminal')
-      setAnimation()
-    }
-  })
+    const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+    newUindowOS.terminalAnimation = true
+    newUindowOS.switchOffAnimation = true
+    newUindowOS.appMoveAnimation = true
+    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
 
-  const setAnimation = () => {
+    startAnimation()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const startAnimation = () => {
     gsap.registerPlugin(TextPlugin)
     const timeline = gsap.timeline()
     const timeline2 = gsap.timeline()
@@ -65,7 +69,7 @@ export const Bios = () => {
             <div className={styles.rightFlare}></div>
           </div>
         </div>
-        <canvas id="canvas" className="absolute left-0 top-0 z-10 h-full w-full" ref={ref} />
+        <canvas id="canvas" className="absolute left-0 top-0 z-10 h-full w-full" />
         <div id="screen" className={styles.screen}>
           <div className={styles.shake}>
             <p id="text1" className="mb-8"></p>
@@ -88,12 +92,18 @@ export const Bios = () => {
             </div>
             <div className="flex flex-col">
               <p id="text7"></p>
-              <Link href="https://www.youtube.com/channel/UCt30jJgChL8qeT9VPadidSw" passHref>
-                <a id="text8" target="_blank" rel="noopener noreferrer"></a>
-              </Link>
-              <Link href="https://twitter.com/UindowOS" passHref>
-                <a id="text9" target="_blank" rel="noopener noreferrer"></a>
-              </Link>
+              <Link
+                id="text8"
+                href="https://www.youtube.com/channel/UCt30jJgChL8qeT9VPadidSw"
+                target="_blank"
+                rel="noopener noreferrer"
+              ></Link>
+              <Link
+                id="text9"
+                href="https://twitter.com/UindowOS"
+                target="_blank"
+                rel="noopener noreferrer"
+              ></Link>
             </div>
           </div>
         </div>

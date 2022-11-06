@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { terminalAnimation } from '@libs/animation/TerminalAnimation'
 import TerminalEdgeSVG from '@assets/svg/login/terminal/terminal-edge.svg'
 import TerminalEyeSVG from '@assets/svg/login/terminal/terminal-eye.svg'
@@ -6,16 +6,25 @@ import TerminalMouthSVG from '@assets/svg/login/terminal/terminal-mouth.svg'
 import TerminalTongueSVG from '@assets/svg/login/terminal/terminal-tongue.svg'
 import RainSVG from '@assets/svg/login/rain.svg'
 import UmbrellaSVG from '@assets/svg/login/umbrella.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@libs/store'
+import { uindowosSlice } from '@libs/store/uindowos'
 
 export const Terminal = () => {
-  const state = useRef(false)
+  const dispatch = useDispatch()
+  const state = useSelector((state: RootState) => state.uindowos)
 
   useEffect(() => {
-    if (!state.current && typeof window !== 'undefined') {
-      state.current = true
+    if (state.uindowos.terminalAnimation) {
       terminalAnimation()
+
+      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+      newUindowOS.terminalAnimation = false
+      dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
     }
-  })
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>

@@ -1,8 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { switchOnAnimation, switchOffAnimation } from '@libs/animation/SwitchAnimation'
 import TitleSVG from '@assets/svg/common/title.svg'
-import { useCookies } from 'react-cookie'
+import { switchOnAnimation, switchOffAnimation } from '@libs/animation/SwitchAnimation'
 
 interface Args {
   type?: 'on' | 'off'
@@ -10,24 +9,20 @@ interface Args {
 }
 
 export const Switch = (args: Args) => {
-  const state = useRef(false)
   const type = args.type ? args.type : 'off'
   const href = args.href ? args.href : '/'
   const router = useRouter()
-  // eslint-disable-next-line no-unused-vars
-  const [cookies, setCookie] = useCookies(['switchOnAnimation', 'switchOffAnimation'])
 
   useEffect(() => {
-    if (!state.current && typeof window !== 'undefined') {
-      state.current = true
-      if (type === 'on' && cookies.switchOnAnimation !== 'false') {
-        switchOnAnimation()
-        setInterval(() => router.push(href), 800)
-      } else if (type === 'off' && cookies.switchOffAnimation !== 'false') {
-        switchOffAnimation()
-      }
+    if (type === 'off') {
+      switchOffAnimation()
+    } else if (type === 'on') {
+      switchOnAnimation()
+      setInterval(() => router.push(href), 800)
     }
-  })
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
