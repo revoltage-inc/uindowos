@@ -28,7 +28,10 @@ export const Switch = (args: Args) => {
     <>
       <div
         id="switch-wrap"
-        className="absolute top-0 left-0 z-[1000] hidden h-full w-full select-none"
+        className={[
+          'absolute top-0 left-0 z-[1000] h-full w-full select-none',
+          type === 'off' ? 'block' : 'hidden',
+        ].join(' ')}
         style={{ perspective: '3000px' }}
       >
         <div

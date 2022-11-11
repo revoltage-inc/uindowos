@@ -5,7 +5,7 @@ import { appMoveAnimation } from '@libs/animation/AppMoveAnimation'
 import { Menu } from '@components/parts/Top/Menu'
 import { Switch } from '@components/common/Switch'
 import { Window } from '@components/common/Window'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@libs/store'
 import { uindowosSlice } from '@libs/store/uindowos'
 
@@ -15,22 +15,24 @@ export const Top = () => {
 
   useEffect(() => {
     wallpaperAnimation()
+
     if (state.uindowos.appMoveAnimation) {
       appMoveAnimation()
     }
 
-    const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
-    newUindowOS.terminalAnimation = false
-    newUindowOS.switchOffAnimation = false
-    newUindowOS.appMoveAnimation = false
-    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+    setTimeout(() => {
+      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+      newUindowOS.switchOffAnimation = false
+      newUindowOS.appMoveAnimation = false
+      dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+    }, 2000)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <>
-      <Switch type="off" />
+      {state.uindowos.switchOffAnimation && <Switch type="off" />}
       <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">
