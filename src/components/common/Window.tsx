@@ -64,7 +64,7 @@ export const Window = ({
 
           {/* Contents */}
           <div className="h-full w-full overflow-hidden p-1">
-            <div className="h-full w-full overflow-auto whitespace-pre-wrap">{children}</div>
+            <div className="h-full w-full">{children}</div>
           </div>
         </div>
       </Draggable>
