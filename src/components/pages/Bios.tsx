@@ -7,21 +7,15 @@ import { TurnOnAnimation } from '@libs/animation/TurnOnAnimation'
 import { BiosTextAnimation } from '@libs/animation/BiosTextAnimation'
 import { FlareAnimation } from '@libs/animation/FlareAnimation'
 import { useRouter } from 'next/router'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@libs/store'
+import { useDispatch } from 'react-redux'
 import { uindowosSlice } from '@libs/store/uindowos'
 
 export const Bios = () => {
   const router = useRouter()
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.uindowos)
 
   useEffect(() => {
-    const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
-    newUindowOS.terminalAnimation = true
-    newUindowOS.switchOffAnimation = true
-    newUindowOS.appMoveAnimation = true
-    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+    dispatch(uindowosSlice.actions.reset())
 
     startAnimation()
 
