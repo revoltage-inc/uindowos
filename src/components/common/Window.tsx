@@ -33,6 +33,7 @@ export const Window = ({
     defaultPositionY === undefined ? 200 / 2 : defaultPositionY
     // defaultPositionY === undefined ? (window.innerHeight - height) / 2 : defaultPositionY
   )
+  const [resizing, setResizing] = useState(false)
 
   const resizeTop = (event: DragEvent<HTMLDivElement>) => {
     if (event.clientY !== 0) {
@@ -96,29 +97,41 @@ export const Window = ({
             <div
               className="absolute -top-2 left-3 z-10 h-3 w-[calc(100%-24px)] cursor-ns-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => resizeTop(event)}
             ></div>
             {/* Bottom */}
             <div
               className="absolute -bottom-2 left-3 z-10 h-3 w-[calc(100%-24px)] cursor-ns-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => resizeBottom(event)}
             ></div>
             {/* Left */}
             <div
               className="absolute top-3 -left-2 z-10 h-[calc(100%-24px)] w-3 cursor-ew-resize"
               draggable="true"
-              onDrag={(event) => resizeLeft(event)}
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
+              onDrag={(event) => {
+                resizeLeft(event)
+              }}
             ></div>
             {/* Right */}
             <div
               className="absolute top-3 -right-2 z-10 h-[calc(100%-24px)] w-3 cursor-ew-resize"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => resizeRight(event)}
             ></div>
             {/* TopLeft */}
             <div
               className="absolute -top-2 -left-2 z-10 h-5 w-5 cursor-nwse-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => {
                 resizeTop(event)
                 resizeLeft(event)
@@ -128,6 +141,8 @@ export const Window = ({
             <div
               className="absolute -top-2 -right-2 z-10 h-5 w-5 cursor-nesw-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => {
                 resizeTop(event)
                 resizeRight(event)
@@ -137,6 +152,8 @@ export const Window = ({
             <div
               className="absolute -bottom-2 -left-2 z-10 h-5 w-5 cursor-nesw-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => {
                 resizeBottom(event)
                 resizeLeft(event)
@@ -146,6 +163,8 @@ export const Window = ({
             <div
               className="absolute -bottom-2 -right-2 z-10 h-5 w-5 cursor-nwse-resize"
               draggable="true"
+              onDragStart={() => setResizing(true)}
+              onDragEnd={() => setResizing(false)}
               onDrag={(event) => {
                 resizeBottom(event)
                 resizeRight(event)
@@ -158,7 +177,7 @@ export const Window = ({
             className={[
               'windowHeader',
               'flex h-[42px] min-h-[42px] w-full items-center justify-between rounded-t-2xl',
-              // HACK: If className is dynamic, Tainwind won't include CSS, so include it in comments.
+              // HACK: If className is dynamic, Tainwind won't include CSS, so include it in comments
               // 'bg-royal-blue',
               // 'bg-khaki',
               // 'bg-dark-olive'
@@ -176,7 +195,15 @@ export const Window = ({
 
           {/* Contents */}
           <div className="h-full w-full overflow-hidden p-1">
-            <div className="h-full w-full">{children}</div>
+            <div
+              className={[
+                'h-full w-full',
+                // HACK: Disable select while resizing
+                resizing ? 'select-none' : '',
+              ].join(' ')}
+            >
+              {children}
+            </div>
           </div>
         </div>
       </Draggable>
