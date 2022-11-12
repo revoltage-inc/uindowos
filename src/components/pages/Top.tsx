@@ -115,7 +115,7 @@ export const Top = () => {
             <Image src="/img/top/desktop/mail.png" width={48} height={48} alt="" />
           </div>
         </div>
-        <div id="window" className="absolute top-0 left-0 z-40 h-full w-full">
+        <div id="window" className="absolute top-0 left-0 z-40">
           <Window>
             <p>test</p>
           </Window>
