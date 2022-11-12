@@ -29,5 +29,11 @@ input::-webkit-credentials-auto-fill-button {
 
 /* HACK: Turn off eye icon for password display in Edge */
 ::-ms-reveal {
-    display: none;
+  display: none;
+}
+
+/* HACK: Change background color and text color when selecting text */
+::selection
+{
+  @apply bg-main text-white;
 }
