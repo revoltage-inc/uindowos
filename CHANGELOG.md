@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.16](https://github.com/revoltage-inc/uindowos/compare/v0.0.15...v0.0.16) (2022-11-12)
+
+
+### Bug Fixes
+
+* 5 add window ([64b2a3e](https://github.com/revoltage-inc/uindowos/commit/64b2a3e0907e8787f74710cb901a5b63d32e567b))
+* 5 added function to maximize window ([8eaeb62](https://github.com/revoltage-inc/uindowos/commit/8eaeb62325da54c0b49015dda3ebe6a8d57ce386))
+* 5 added window resizing function ([56dba7f](https://github.com/revoltage-inc/uindowos/commit/56dba7f954cc9b2786adf8d00154d5f23fe6694f))
+* 5 change background color and text color when selecting text ([161e526](https://github.com/revoltage-inc/uindowos/commit/161e5268ff683428b598f8b75689053f0361cbe9))
+* 5 disable select contents while resizing ([67b4049](https://github.com/revoltage-inc/uindowos/commit/67b40499dfbe3ce19b527d37a71e3da2358b3bee))
+* 5 fixed issue where switch animations were skipped ([a4dd2fb](https://github.com/revoltage-inc/uindowos/commit/a4dd2fbc985d9224d08479e207f8a212ff0c33bd))
+* 5 fixed so that contents of children are line-wrapped ([aa2ea5f](https://github.com/revoltage-inc/uindowos/commit/aa2ea5fd5e6885aa9f40ed93d511e4fc15205773))
+* 5 fixed so that it depends on children whether to allow line breaks in the window ([43169be](https://github.com/revoltage-inc/uindowos/commit/43169be7a2e44ee384c23b5e92f614df57aa36c9))
+* 5 update package ([e22a933](https://github.com/revoltage-inc/uindowos/commit/e22a9336634c635db4216974307c8aea3eb20b5b))
+* 5 update package ([23c7916](https://github.com/revoltage-inc/uindowos/commit/23c7916addf2d6bccf9bd9da17887289429eb765))
+
 ## [0.0.15](https://github.com/revoltage-inc/uindowos/compare/v0.0.14...v0.0.15) (2022-11-06)
 
 
