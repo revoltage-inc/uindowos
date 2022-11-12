@@ -221,16 +221,14 @@ export const Window = ({
           </div>
 
           {/* Contents */}
-          <div className="h-full w-full overflow-hidden p-1">
-            <div
-              className={[
-                'h-full w-full',
-                // HACK: Disable select while resizing
-                resizing ? 'select-none' : '',
-              ].join(' ')}
-            >
-              {children}
-            </div>
+          <div
+            className={[
+              'h-full w-full overflow-auto whitespace-pre-wrap',
+              // HACK: Disable select while resizing
+              resizing ? 'select-none' : '',
+            ].join(' ')}
+          >
+            {children}
           </div>
         </div>
       </Draggable>

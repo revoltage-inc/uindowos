@@ -117,9 +117,7 @@ export const Top = () => {
         </div>
         <div id="window" className="absolute top-0 left-0 z-40 h-full w-full">
           <Window>
-            <div className="overflow-auto whitespace-pre-wrap">
-              <p>test</p>
-            </div>
+            <p>test</p>
           </Window>
         </div>
       </div>
