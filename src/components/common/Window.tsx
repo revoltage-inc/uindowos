@@ -4,7 +4,7 @@ import CloseButtonSVG from '@assets/svg/common/window/close-button.svg'
 import MaximizeButtonSVG from '@assets/svg/common/window/maximize-button.svg'
 import MinimizeButtonSVG from '@assets/svg/common/window/minimize-button.svg'
 
-export interface Args {
+export interface Props {
   title?: string
   titleBarColor?: 'royal-blue' | 'khaki' | 'dark-olive'
   defaultWidth?: number
@@ -22,7 +22,7 @@ export const Window = ({
   defaultPositionX,
   defaultPositionY,
   children,
-}: Args) => {
+}: Props) => {
   const nodeRef = useRef(null)
   const [width, setWidth] = useState(defaultWidth >= 200 ? defaultWidth : 200)
   const [height, setHeight] = useState(defaultHeight >= 200 ? defaultHeight : 200)
