@@ -1,4 +1,4 @@
-import { useRef, ReactElement } from 'react'
+import { useState, useRef, ReactElement, DragEvent } from 'react'
 import Draggable from 'react-draggable'
 import CloseButtonSVG from '@assets/svg/common/window/close-button.svg'
 import MaximizeButtonSVG from '@assets/svg/common/window/maximize-button.svg'
@@ -7,31 +7,80 @@ import MinimizeButtonSVG from '@assets/svg/common/window/minimize-button.svg'
 export interface Args {
   title?: string
   titleBarColor?: 'royal-blue' | 'khaki' | 'dark-olive'
-  width?: number
-  height?: number
+  defaultWidth?: number
+  defaultHeight?: number
+  defaultPositionX?: number
+  defaultPositionY?: number
   children: ReactElement
 }
 
 export const Window = ({
   title,
   titleBarColor = 'royal-blue',
-  width = 850,
-  height = 500,
+  defaultWidth = 800,
+  defaultHeight = 500,
+  defaultPositionX,
+  defaultPositionY,
   children,
 }: Args) => {
   const nodeRef = useRef(null)
+  const [width, setWidth] = useState(defaultWidth >= 200 ? defaultWidth : 200)
+  const [height, setHeight] = useState(defaultHeight >= 200 ? defaultHeight : 200)
+  const [positionX, setPositionX] = useState(
+    defaultPositionX === undefined ? (window.innerWidth - width) / 2 : defaultPositionX
+  )
+  const [positionY, setPositionY] = useState(
+    defaultPositionY === undefined ? 200 / 2 : defaultPositionY
+    // defaultPositionY === undefined ? (window.innerHeight - height) / 2 : defaultPositionY
+  )
 
-  // HACK: Set the window so that it does not fall below minimum width.
-  if (width < 300) {
-    width = 300
+  const resizeTop = (event: DragEvent<HTMLDivElement>) => {
+    if (event.clientY !== 0) {
+      const moveY = positionY - event.clientY
+      const newHeight = height + moveY
+      if (newHeight >= 200) {
+        setHeight(newHeight)
+        setPositionY(positionY - moveY)
+      }
+    }
   }
-  if (height < 300) {
-    height = 300
+
+  const resizeBottom = (event: DragEvent<HTMLDivElement>) => {
+    if (event.clientY !== 0) {
+      const newHeight = event.clientY - positionY - 42
+      if (newHeight >= 200) setHeight(newHeight)
+    }
+  }
+
+  const resizeLeft = (event: DragEvent<HTMLDivElement>) => {
+    if (event.clientX !== 0) {
+      const moveX = positionX - event.clientX
+      const newWidth = width + moveX
+      if (newWidth >= 200) {
+        setWidth(newWidth)
+        setPositionX(positionX - moveX)
+      }
+    }
+  }
+
+  const resizeRight = (event: DragEvent<HTMLDivElement>) => {
+    if (event.clientX !== 0) {
+      const newWidth = event.clientX - positionX
+      if (newWidth >= 200) setWidth(newWidth)
+    }
   }
 
   return (
     <>
-      <Draggable nodeRef={nodeRef} handle=".windowHeader" defaultPosition={{ x: 0, y: 0 }}>
+      <Draggable
+        nodeRef={nodeRef}
+        handle=".windowHeader"
+        position={{ x: positionX, y: positionY }}
+        onDrag={(_, data) => {
+          setPositionX(data.x)
+          setPositionY(data.y)
+        }}
+      >
         <div
           ref={nodeRef}
           className="relative flex flex-col rounded-2xl bg-snow"
@@ -41,11 +90,74 @@ export const Window = ({
             height: height + 'px',
           }}
         >
+          {/* ResizeArea */}
+          <>
+            {/* Top */}
+            <div
+              className="absolute -top-2 left-3 z-10 h-3 w-[calc(100%-24px)] cursor-ns-resize"
+              draggable="true"
+              onDrag={(event) => resizeTop(event)}
+            ></div>
+            {/* Bottom */}
+            <div
+              className="absolute -bottom-2 left-3 z-10 h-3 w-[calc(100%-24px)] cursor-ns-resize"
+              draggable="true"
+              onDrag={(event) => resizeBottom(event)}
+            ></div>
+            {/* Left */}
+            <div
+              className="absolute top-3 -left-2 z-10 h-[calc(100%-24px)] w-3 cursor-ew-resize"
+              draggable="true"
+              onDrag={(event) => resizeLeft(event)}
+            ></div>
+            {/* Right */}
+            <div
+              className="absolute top-3 -right-2 z-10 h-[calc(100%-24px)] w-3 cursor-ew-resize"
+              onDrag={(event) => resizeRight(event)}
+            ></div>
+            {/* TopLeft */}
+            <div
+              className="absolute -top-2 -left-2 z-10 h-5 w-5 cursor-nwse-resize"
+              draggable="true"
+              onDrag={(event) => {
+                resizeTop(event)
+                resizeLeft(event)
+              }}
+            ></div>
+            {/* TopRight */}
+            <div
+              className="absolute -top-2 -right-2 z-10 h-5 w-5 cursor-nesw-resize"
+              draggable="true"
+              onDrag={(event) => {
+                resizeTop(event)
+                resizeRight(event)
+              }}
+            ></div>
+            {/* BottomLeft */}
+            <div
+              className="absolute -bottom-2 -left-2 z-10 h-5 w-5 cursor-nesw-resize"
+              draggable="true"
+              onDrag={(event) => {
+                resizeBottom(event)
+                resizeLeft(event)
+              }}
+            ></div>
+            {/* BottomRight */}
+            <div
+              className="absolute -bottom-2 -right-2 z-10 h-5 w-5 cursor-nwse-resize"
+              draggable="true"
+              onDrag={(event) => {
+                resizeBottom(event)
+                resizeRight(event)
+              }}
+            ></div>
+          </>
+
           {/* Header */}
           <div
             className={[
               'windowHeader',
-              'flex h-[42px] w-full items-center justify-between rounded-t-2xl',
+              'flex h-[42px] min-h-[42px] w-full items-center justify-between rounded-t-2xl',
               // HACK: If className is dynamic, Tainwind won't include CSS, so include it in comments.
               // 'bg-royal-blue',
               // 'bg-khaki',
