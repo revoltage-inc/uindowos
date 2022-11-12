@@ -200,7 +200,7 @@ export const Window = ({
           <div
             className={[
               'windowHeader',
-              'flex h-[42px] min-h-[42px] w-full items-center justify-between',
+              'flex h-[42px] min-h-[42px] w-full items-center justify-between gap-2',
               // HACK: If className is dynamic, Tainwind won't include CSS, so include it in comments
               // 'bg-royal-blue',
               // 'bg-khaki',
@@ -216,7 +216,9 @@ export const Window = ({
               />
               <MinimizeButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
             </div>
-            <span className="font-[hatch] text-xs font-bold text-snow drop-shadow-sm">{title}</span>
+            <span className="select-none font-[hatch] text-xs font-bold text-snow drop-shadow-sm">
+              {title}
+            </span>
             <div className="mr-4 w-[70px]"></div>
           </div>
 
