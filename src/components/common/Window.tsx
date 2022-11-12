@@ -1,4 +1,4 @@
-import { useState, useRef, ReactElement, DragEvent } from 'react'
+import { useEffect, useState, useRef, ReactElement, DragEvent } from 'react'
 import Draggable from 'react-draggable'
 import CloseButtonSVG from '@assets/svg/common/window/close-button.svg'
 import MaximizeButtonSVG from '@assets/svg/common/window/maximize-button.svg'
@@ -34,6 +34,7 @@ export const Window = ({
     // defaultPositionY === undefined ? (window.innerHeight - height) / 2 : defaultPositionY
   )
   const [resizing, setResizing] = useState(false)
+  const [isMaximized, setIsMaximized] = useState(false)
 
   const resizeTop = (event: DragEvent<HTMLDivElement>) => {
     if (event.clientY !== 0) {
@@ -71,6 +72,26 @@ export const Window = ({
     }
   }
 
+  const resizeMaximized = () => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+    setPositionX(0)
+    setPositionY(0)
+  }
+
+  useEffect(() => {
+    if (
+      width === window.innerWidth &&
+      height === window.innerHeight &&
+      positionX === 0 &&
+      positionY === 0
+    ) {
+      setIsMaximized(true)
+    } else {
+      setIsMaximized(false)
+    }
+  }, [width, height, positionX, positionY])
+
   return (
     <>
       <Draggable
@@ -84,7 +105,10 @@ export const Window = ({
       >
         <div
           ref={nodeRef}
-          className="relative flex flex-col rounded-2xl bg-snow"
+          className={[
+            'relative flex flex-col overflow-hidden bg-snow',
+            isMaximized ? '' : 'rounded-2xl',
+          ].join(' ')}
           style={{
             boxShadow: '8px 8px 0px 0 rgba(150, 140, 130, 0.4)',
             width: width + 'px',
@@ -176,7 +200,7 @@ export const Window = ({
           <div
             className={[
               'windowHeader',
-              'flex h-[42px] min-h-[42px] w-full items-center justify-between rounded-t-2xl',
+              'flex h-[42px] min-h-[42px] w-full items-center justify-between',
               // HACK: If className is dynamic, Tainwind won't include CSS, so include it in comments
               // 'bg-royal-blue',
               // 'bg-khaki',
@@ -186,7 +210,10 @@ export const Window = ({
           >
             <div className="ml-4 flex w-[70px] items-center gap-x-2">
               <CloseButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
-              <MaximizeButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
+              <MaximizeButtonSVG
+                className="h-[18px] w-[18px] fill-snow drop-shadow-sm"
+                onClick={() => resizeMaximized()}
+              />
               <MinimizeButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
             </div>
             <span className="font-[hatch] text-xs font-bold text-snow drop-shadow-sm">{title}</span>
