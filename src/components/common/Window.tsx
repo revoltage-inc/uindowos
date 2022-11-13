@@ -216,7 +216,7 @@ export const Window = ({
               />
               <MinimizeButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
             </div>
-            <span className="select-none font-[hatch] text-xs font-bold text-snow drop-shadow-sm">
+            <span className="select-none overflow-hidden text-ellipsis whitespace-nowrap font-[hatch] text-xs font-bold text-snow drop-shadow-sm">
               {title}
             </span>
             <div className="mr-4 w-[70px]"></div>
