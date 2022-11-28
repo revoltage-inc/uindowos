@@ -1,7 +1,7 @@
 import React from 'react'
 import type { StoryObj } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import '../src/assets/css/globals.css'
+import '../src/assets/css/global.css'
 import Image from 'next/image'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'

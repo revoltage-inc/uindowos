@@ -1,4 +1,4 @@
-import '@assets/css/globals.css'
+import '@assets/css/global.css'
 import type { AppProps } from 'next/app'
 import { appWithTranslation } from 'next-i18next'
 import { Provider } from 'react-redux'
