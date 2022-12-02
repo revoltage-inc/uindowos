@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { terminalAnimation } from '@libs/animation/TerminalAnimation'
+import { animateTerminal } from '@libs/animation/terminal'
 import TerminalEdgeSVG from '@assets/svg/login/terminal/terminal-edge.svg'
 import TerminalEyeSVG from '@assets/svg/login/terminal/terminal-eye.svg'
 import TerminalMouthSVG from '@assets/svg/login/terminal/terminal-mouth.svg'
@@ -15,11 +15,11 @@ export const Terminal = () => {
   const state = useSelector((state: RootState) => state.animation)
 
   useEffect(() => {
-    if (state.animation.terminalAnimation) {
-      terminalAnimation()
+    if (state.animation.showTerminal) {
+      animateTerminal()
 
       const newAnimation = structuredClone(state.animation)
-      newAnimation.terminalAnimation = false
+      newAnimation.showTerminal = false
       dispatch(animationSlice.actions.updateAnimation(newAnimation))
     }
 

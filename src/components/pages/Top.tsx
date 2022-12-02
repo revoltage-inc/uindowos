@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
-import { wallpaperAnimation } from '@libs/animation/WallpaperAnimation'
-import { appMoveAnimation } from '@libs/animation/AppMoveAnimation'
+import { animateApp, animateWallpaper } from '@libs/animation/desktop'
 import { Menu } from '@components/parts/Top/Menu'
 import { Switch } from '@components/common/Switch'
 import { Window } from '@components/common/Window'
@@ -16,16 +15,16 @@ export const Top = () => {
   const windowState = useSelector((state: RootState) => state.window)
 
   useEffect(() => {
-    wallpaperAnimation()
+    animateWallpaper()
 
-    if (animationState.animation.appMoveAnimation) {
-      appMoveAnimation()
+    if (animationState.animation.moveApp) {
+      animateApp()
     }
 
     setTimeout(() => {
       const newAnimation = structuredClone(animationState.animation)
-      newAnimation.switchOffAnimation = false
-      newAnimation.appMoveAnimation = false
+      newAnimation.switchOff = false
+      newAnimation.moveApp = false
       dispatch(animationSlice.actions.updateAnimation(newAnimation))
     }, 2000)
 
@@ -43,7 +42,7 @@ export const Top = () => {
 
   return (
     <>
-      {animationState.animation.switchOffAnimation && <Switch type="off" />}
+      {animationState.animation.switchOff && <Switch type="off" />}
       <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">

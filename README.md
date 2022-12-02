@@ -25,7 +25,7 @@ volta install node@18.12.1 npm@9.1.2
 npm install
 ```
 
-Then create environment file with following command.  
+~~Then create environment file with following command.~~  
 
 ```zsh
 cp .env.template .env

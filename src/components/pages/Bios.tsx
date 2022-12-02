@@ -3,9 +3,8 @@ import Link from 'next/link'
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/dist/TextPlugin'
 import styles from '@assets/css/components/pages/Bios.module.css'
-import { TurnOnAnimation } from '@libs/animation/TurnOnAnimation'
-import { BiosTextAnimation } from '@libs/animation/BiosTextAnimation'
-import { FlareAnimation } from '@libs/animation/FlareAnimation'
+import { animateBios, animateTurnOn } from '@libs/animation/bios'
+import { animateFlare } from '@libs/animation/flare'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 import { animationSlice } from '@libs/store/animation'
@@ -31,18 +30,18 @@ export const Bios = () => {
     timeline
       .to('body', {
         onStart: () => {
-          TurnOnAnimation(timeline2)
+          animateTurnOn(timeline2)
         },
       })
       .to('body', {
         onStart: () => {
-          BiosTextAnimation(timeline3)
+          animateBios(timeline3)
         },
       })
       .to('body', {
         delay: 1,
         onStart: () => {
-          FlareAnimation()
+          animateFlare()
         },
       })
       .to('body', {

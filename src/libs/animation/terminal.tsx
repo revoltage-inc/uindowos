@@ -1,6 +1,6 @@
 import { gsap, Power2, Bounce, Circ } from 'gsap'
 
-export function terminalAnimation() {
+export const animateTerminal = () => {
   const timeline = gsap.timeline()
   const timeline2 = gsap.timeline()
   const timeline3 = gsap.timeline()

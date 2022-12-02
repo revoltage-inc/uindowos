@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface Animation {
-  terminalAnimation: boolean
-  switchOffAnimation: boolean
-  appMoveAnimation: boolean
+  showTerminal: boolean
+  switchOff: boolean
+  moveApp: boolean
 }
 
 export interface AnimationState {
@@ -15,9 +15,9 @@ export type AddHistoryPayload = string
 
 const initialState: AnimationState = {
   animation: {
-    terminalAnimation: true,
-    switchOffAnimation: true,
-    appMoveAnimation: true,
+    showTerminal: true,
+    switchOff: true,
+    moveApp: true,
   },
 }
 

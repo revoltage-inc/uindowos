@@ -9,7 +9,7 @@ import { Texture } from '@babylonjs/core/Materials/Textures'
 import { Color4, Color3 } from '@babylonjs/core/Maths/math.color'
 import { FireProceduralTexture } from '@babylonjs/procedural-textures'
 
-export function FlareAnimation() {
+export const animateFlare = () => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement
 
   const engine = new Engine(canvas, true, {

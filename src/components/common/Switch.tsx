@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import TitleSVG from '@assets/svg/common/title.svg'
-import { switchOnAnimation, switchOffAnimation } from '@libs/animation/SwitchAnimation'
+import { animateSwitchOn, animateSwitchOff } from '@libs/animation/switch'
 
 interface Props {
   type?: 'on' | 'off'
@@ -15,9 +15,9 @@ export const Switch = (props: Props) => {
 
   useEffect(() => {
     if (type === 'off') {
-      switchOffAnimation()
+      animateSwitchOff()
     } else if (type === 'on') {
-      switchOnAnimation()
+      animateSwitchOn()
       setInterval(() => router.push(href), 800)
     }
 

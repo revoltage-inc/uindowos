@@ -1,7 +1,7 @@
-import { gsap } from 'gsap'
+import { gsap, Power2 } from 'gsap'
 import { TextPlugin } from 'gsap/dist/TextPlugin'
 
-export function BiosTextAnimation(timeline: gsap.core.Timeline) {
+export const animateBios = (timeline: gsap.core.Timeline) => {
   gsap.registerPlugin(TextPlugin)
 
   timeline
@@ -93,5 +93,37 @@ export function BiosTextAnimation(timeline: gsap.core.Timeline) {
       },
       duration: 0.1,
       ease: 'ease',
+    })
+}
+
+export const animateTurnOn = (timeline: gsap.core.Timeline) => {
+  timeline
+    .to('#circle-flare', {
+      height: '200px',
+      opacity: '1',
+      duration: 0.1,
+      ease: Power2.easeOut,
+    })
+    .to('#circle-flare', {
+      height: '0px',
+      opacity: '0',
+      duration: 0.1,
+      ease: Power2.easeOut,
+    })
+    .to(
+      '#stick-flare',
+      {
+        width: '100%',
+        opacity: '1',
+        duration: 0.1,
+        ease: Power2.easeOut,
+      },
+      '-=0.2'
+    )
+    .to('#stick-flare', {
+      width: '75%',
+      opacity: '0',
+      duration: 0.1,
+      ease: Power2.easeOut,
     })
 }
