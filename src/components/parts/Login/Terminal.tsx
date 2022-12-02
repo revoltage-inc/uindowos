@@ -18,7 +18,7 @@ export const Terminal = () => {
     if (state.uindowos.terminalAnimation) {
       terminalAnimation()
 
-      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+      const newUindowOS = structuredClone(state.uindowos)
       newUindowOS.terminalAnimation = false
       dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
     }

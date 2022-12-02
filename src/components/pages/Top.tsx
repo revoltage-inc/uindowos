@@ -21,7 +21,7 @@ export const Top = () => {
     }
 
     setTimeout(() => {
-      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
+      const newUindowOS = structuredClone(state.uindowos)
       newUindowOS.switchOffAnimation = false
       newUindowOS.appMoveAnimation = false
       dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
