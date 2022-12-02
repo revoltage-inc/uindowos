@@ -3,6 +3,7 @@ import type { StoryObj } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import '../src/assets/css/global.css'
 import Image from 'next/image'
+import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -45,6 +46,12 @@ export const parameters = {
         value: '#ff7b88',
       },
     ],
+  },
+  nextRouter: {
+    Provider: RouterContext.Provider,
+    push(url: string) {
+      console.log('Route page: ' + url)
+    },
   },
 }
 
