@@ -5,7 +5,7 @@ import MaximizeButtonSVG from '@assets/svg/common/window/maximize-button.svg'
 import MinimizeButtonSVG from '@assets/svg/common/window/minimize-button.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@libs/store'
-import { uindowosSlice } from '@libs/store/uindowos'
+import { windowSlice } from '@libs/store/window'
 
 export interface Props {
   id: string
@@ -21,7 +21,7 @@ export interface Props {
 
 export const Window = (props: Props) => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.uindowos)
+  const state = useSelector((state: RootState) => state.window)
 
   const nodeRef = useRef(null)
   const [width, setWidth] = useState(props.width ? (props.width >= 200 ? props.width : 200) : 850)
@@ -99,12 +99,12 @@ export const Window = (props: Props) => {
     }
 
     // Update Window size and position
-    const newUindowOS = structuredClone(state.uindowos)
-    newUindowOS.windowPropsList[props.index].width = width
-    newUindowOS.windowPropsList[props.index].height = height
-    newUindowOS.windowPropsList[props.index].positionX = positionX
-    newUindowOS.windowPropsList[props.index].positionY = positionY
-    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+    const newWindow = structuredClone(state.window)
+    newWindow.propsList[props.index].width = width
+    newWindow.propsList[props.index].height = height
+    newWindow.propsList[props.index].positionX = positionX
+    newWindow.propsList[props.index].positionY = positionY
+    dispatch(windowSlice.actions.updateWindow(newWindow))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height, positionX, positionY])

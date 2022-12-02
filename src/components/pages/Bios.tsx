@@ -8,14 +8,14 @@ import { BiosTextAnimation } from '@libs/animation/BiosTextAnimation'
 import { FlareAnimation } from '@libs/animation/FlareAnimation'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
-import { uindowosSlice } from '@libs/store/uindowos'
+import { animationSlice } from '@libs/store/animation'
 
 export const Bios = () => {
   const router = useRouter()
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(uindowosSlice.actions.reset())
+    dispatch(animationSlice.actions.reset())
 
     startAnimation()
 

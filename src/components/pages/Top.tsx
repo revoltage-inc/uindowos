@@ -7,24 +7,26 @@ import { Switch } from '@components/common/Switch'
 import { Window } from '@components/common/Window'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@libs/store'
-import { uindowosSlice } from '@libs/store/uindowos'
+import { animationSlice } from '@libs/store/animation'
+import { windowSlice } from '@libs/store/window'
 
 export const Top = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.uindowos)
+  const animationState = useSelector((state: RootState) => state.animation)
+  const windowState = useSelector((state: RootState) => state.window)
 
   useEffect(() => {
     wallpaperAnimation()
 
-    if (state.uindowos.appMoveAnimation) {
+    if (animationState.animation.appMoveAnimation) {
       appMoveAnimation()
     }
 
     setTimeout(() => {
-      const newUindowOS = structuredClone(state.uindowos)
-      newUindowOS.switchOffAnimation = false
-      newUindowOS.appMoveAnimation = false
-      dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+      const newAnimation = structuredClone(animationState.animation)
+      newAnimation.switchOffAnimation = false
+      newAnimation.appMoveAnimation = false
+      dispatch(animationSlice.actions.updateAnimation(newAnimation))
     }, 2000)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,7 +43,7 @@ export const Top = () => {
 
   return (
     <>
-      {state.uindowos.switchOffAnimation && <Switch type="off" />}
+      {animationState.animation.switchOffAnimation && <Switch type="off" />}
       <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">
@@ -73,19 +75,18 @@ export const Top = () => {
             className="absolute top-[274px] right-[104px] h-[48px] w-[48px] rounded-md drop-shadow-sm"
             onClick={() => {
               if (
-                state.uindowos.windowPropsList.find(
-                  (windowProps) => windowProps.id === 'folder'
-                ) === undefined
+                windowState.window.propsList.find((windowProps) => windowProps.id === 'folder') ===
+                undefined
               ) {
-                const newUindowOS = structuredClone(state.uindowos)
+                const newWindow = structuredClone(windowState.window)
 
-                newUindowOS.windowPropsList.push({
+                newWindow.propsList.push({
                   id: 'folder',
                   index: 0,
                   title: 'Folder',
                 })
 
-                dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+                dispatch(windowSlice.actions.updateWindow(newWindow))
               }
             }}
           >
@@ -142,11 +143,11 @@ export const Top = () => {
           </div>
         </div>
         <div id="window" className="absolute top-0 left-0 z-40">
-          {state.uindowos.windowPropsList.map((windowProps, index) => {
-            const newWindowProps = structuredClone(windowProps)
-            newWindowProps.index = index
-            newWindowProps.contents = getApp(windowProps.id)
-            return <Window key={index} {...newWindowProps}></Window>
+          {windowState.window.propsList.map((props, index) => {
+            const newProps = structuredClone(props)
+            newProps.index = index
+            newProps.contents = getApp(props.id)
+            return <Window key={index} {...newProps}></Window>
           })}
         </div>
       </div>
