@@ -3,35 +3,37 @@ import Draggable from 'react-draggable'
 import CloseButtonSVG from '@assets/svg/common/window/close-button.svg'
 import MaximizeButtonSVG from '@assets/svg/common/window/maximize-button.svg'
 import MinimizeButtonSVG from '@assets/svg/common/window/minimize-button.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@libs/store'
+import { uindowosSlice } from '@libs/store/uindowos'
 
 export interface Props {
+  id: string
+  index: number
   title?: string
   titleBarColor?: 'royal-blue' | 'khaki' | 'dark-olive'
-  defaultWidth?: number
-  defaultHeight?: number
-  defaultPositionX?: number
-  defaultPositionY?: number
-  children: ReactElement
+  width?: number
+  height?: number
+  positionX?: number
+  positionY?: number
+  contents?: ReactElement
 }
 
-export const Window = ({
-  title,
-  titleBarColor = 'royal-blue',
-  defaultWidth = 800,
-  defaultHeight = 500,
-  defaultPositionX,
-  defaultPositionY,
-  children,
-}: Props) => {
+export const Window = (props: Props) => {
+  const dispatch = useDispatch()
+  const state = useSelector((state: RootState) => state.uindowos)
+
   const nodeRef = useRef(null)
-  const [width, setWidth] = useState(defaultWidth >= 200 ? defaultWidth : 200)
-  const [height, setHeight] = useState(defaultHeight >= 200 ? defaultHeight : 200)
+  const [width, setWidth] = useState(props.width ? (props.width >= 200 ? props.width : 200) : 850)
+  const [height, setHeight] = useState(
+    props.height ? (props.height >= 200 ? props.height : 200) : 500
+  )
   const [positionX, setPositionX] = useState(
-    defaultPositionX === undefined ? (window.innerWidth - width) / 2 : defaultPositionX
+    props.positionX === undefined ? (window.innerWidth - width) / 2 : props.positionX
   )
   const [positionY, setPositionY] = useState(
-    defaultPositionY === undefined ? 200 / 2 : defaultPositionY
-    // defaultPositionY === undefined ? (window.innerHeight - height) / 2 : defaultPositionY
+    props.positionY === undefined ? 100 : props.positionY
+    // positionY === undefined ? (window.innerHeight - height) / 2 : positionY
   )
   const [resizing, setResizing] = useState(false)
   const [isMaximized, setIsMaximized] = useState(false)
@@ -79,7 +81,12 @@ export const Window = ({
     setPositionY(0)
   }
 
+  const closeWindow = () => {
+    // TODO: Close window function here
+  }
+
   useEffect(() => {
+    // Update window maximized
     if (
       width === window.innerWidth &&
       height === window.innerHeight &&
@@ -90,6 +97,16 @@ export const Window = ({
     } else {
       setIsMaximized(false)
     }
+
+    // Update Window size and position
+    const newUindowOS = structuredClone(state.uindowos)
+    newUindowOS.windowPropsList[props.index].width = width
+    newUindowOS.windowPropsList[props.index].height = height
+    newUindowOS.windowPropsList[props.index].positionX = positionX
+    newUindowOS.windowPropsList[props.index].positionY = positionY
+    dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height, positionX, positionY])
 
   return (
@@ -105,6 +122,7 @@ export const Window = ({
       >
         <div
           ref={nodeRef}
+          id={props.id}
           className={[
             'relative flex flex-col overflow-hidden bg-snow',
             isMaximized ? '' : 'rounded-2xl',
@@ -205,19 +223,22 @@ export const Window = ({
               // 'bg-royal-blue',
               // 'bg-khaki',
               // 'bg-dark-olive'
-              'bg-' + titleBarColor,
+              'bg-' + (props.titleBarColor ? props.titleBarColor : 'royal-blue'),
             ].join(' ')}
           >
             <div className="ml-4 flex w-[70px] items-center gap-x-2">
-              <CloseButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
+              <CloseButtonSVG
+                className="h-[18px] w-[18px] fill-snow drop-shadow-sm"
+                onClick={closeWindow}
+              />
               <MaximizeButtonSVG
                 className="h-[18px] w-[18px] fill-snow drop-shadow-sm"
-                onClick={() => resizeMaximized()}
+                onClick={resizeMaximized}
               />
               <MinimizeButtonSVG className="h-[18px] w-[18px] fill-snow drop-shadow-sm" />
             </div>
             <span className="select-none overflow-hidden text-ellipsis whitespace-nowrap font-[hatch] text-xs font-bold text-snow drop-shadow-sm">
-              {title}
+              {props.title}
             </span>
             <div className="mr-4 w-[70px]"></div>
           </div>
@@ -230,7 +251,7 @@ export const Window = ({
               resizing ? 'select-none' : '',
             ].join(' ')}
           >
-            {children}
+            {props.contents}
           </div>
         </div>
       </Draggable>

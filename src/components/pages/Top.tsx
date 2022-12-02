@@ -30,6 +30,15 @@ export const Top = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const getApp = (id?: string) => {
+    switch (id) {
+      case 'folder':
+        return <></>
+      default:
+        return <></>
+    }
+  }
+
   return (
     <>
       {state.uindowos.switchOffAnimation && <Switch type="off" />}
@@ -62,6 +71,23 @@ export const Top = () => {
           <div
             id="folder"
             className="absolute top-[274px] right-[104px] h-[48px] w-[48px] rounded-md drop-shadow-sm"
+            onClick={() => {
+              if (
+                state.uindowos.windowPropsList.find(
+                  (windowProps) => windowProps.id === 'folder'
+                ) === undefined
+              ) {
+                const newUindowOS = structuredClone(state.uindowos)
+
+                newUindowOS.windowPropsList.push({
+                  id: 'folder',
+                  index: 0,
+                  title: 'Folder',
+                })
+
+                dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+              }
+            }}
           >
             <Image src="/img/top/desktop/folder.png" width={48} height={39} alt="" />
           </div>
@@ -116,9 +142,12 @@ export const Top = () => {
           </div>
         </div>
         <div id="window" className="absolute top-0 left-0 z-40">
-          <Window>
-            <p>test</p>
-          </Window>
+          {state.uindowos.windowPropsList.map((windowProps, index) => {
+            const newWindowProps = structuredClone(windowProps)
+            newWindowProps.index = index
+            newWindowProps.contents = getApp(windowProps.id)
+            return <Window key={index} {...newWindowProps}></Window>
+          })}
         </div>
       </div>
     </>

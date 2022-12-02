@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import type { Props as WindowProps } from '@components/common/Window'
 
 export interface UindowOS {
   terminalAnimation: boolean
   switchOffAnimation: boolean
   appMoveAnimation: boolean
+  windowPropsList: WindowProps[]
 }
 
 export interface UindowOSState {
@@ -18,6 +20,7 @@ const initialState: UindowOSState = {
     terminalAnimation: true,
     switchOffAnimation: true,
     appMoveAnimation: true,
+    windowPropsList: [],
   },
 }
 
