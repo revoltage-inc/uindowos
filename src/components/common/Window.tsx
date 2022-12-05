@@ -8,8 +8,7 @@ import { RootState } from '@libs/store'
 import { windowSlice } from '@libs/store/window'
 
 export interface Props {
-  id: string
-  index: number
+  appId: string
   title?: string
   titleBarColor?: 'royal-blue' | 'khaki' | 'dark-olive'
   width?: number
@@ -17,6 +16,7 @@ export interface Props {
   positionX?: number
   positionY?: number
   contents?: ReactElement
+  timestamp: number
 }
 
 export const Window = (props: Props) => {
@@ -24,6 +24,7 @@ export const Window = (props: Props) => {
   const state = useSelector((state: RootState) => state.window)
 
   const nodeRef = useRef(null)
+  const index = state.window.propsList.findIndex((window) => window.timestamp === props.timestamp)
   const [width, setWidth] = useState(props.width ? (props.width >= 200 ? props.width : 200) : 850)
   const [height, setHeight] = useState(
     props.height ? (props.height >= 200 ? props.height : 200) : 500
@@ -82,7 +83,11 @@ export const Window = (props: Props) => {
   }
 
   const closeWindow = () => {
-    // TODO: Close window function here
+    if (index !== -1) {
+      const newWindow = structuredClone(state.window)
+      newWindow.propsList.splice(index, 1)
+      dispatch(windowSlice.actions.updateWindow(newWindow))
+    }
   }
 
   useEffect(() => {
@@ -99,12 +104,14 @@ export const Window = (props: Props) => {
     }
 
     // Update Window size and position
-    const newWindow = structuredClone(state.window)
-    newWindow.propsList[props.index].width = width
-    newWindow.propsList[props.index].height = height
-    newWindow.propsList[props.index].positionX = positionX
-    newWindow.propsList[props.index].positionY = positionY
-    dispatch(windowSlice.actions.updateWindow(newWindow))
+    if (index !== -1) {
+      const newWindow = structuredClone(state.window)
+      newWindow.propsList[index].width = width
+      newWindow.propsList[index].height = height
+      newWindow.propsList[index].positionX = positionX
+      newWindow.propsList[index].positionY = positionY
+      dispatch(windowSlice.actions.updateWindow(newWindow))
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height, positionX, positionY])
@@ -122,7 +129,6 @@ export const Window = (props: Props) => {
       >
         <div
           ref={nodeRef}
-          id={props.id}
           className={[
             'relative flex flex-col overflow-hidden bg-snow',
             isMaximized ? '' : 'rounded-2xl',

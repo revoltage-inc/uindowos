@@ -31,8 +31,8 @@ export const Top = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const getApp = (id?: string) => {
-    switch (id) {
+  const getApp = (appId?: string) => {
+    switch (appId) {
       case 'folder':
         return <></>
       default:
@@ -73,16 +73,12 @@ export const Top = () => {
             id="folder"
             className="absolute top-[274px] right-[104px] h-[48px] w-[48px] rounded-md drop-shadow-sm"
             onClick={() => {
-              if (
-                windowState.window.propsList.find((windowProps) => windowProps.id === 'folder') ===
-                undefined
-              ) {
+              if (!windowState.window.propsList.find((props) => props.appId === 'folder')) {
                 const newWindow = structuredClone(windowState.window)
-
                 newWindow.propsList.push({
-                  id: 'folder',
-                  index: 0,
+                  appId: 'folder',
                   title: 'Folder',
+                  timestamp: new Date().getTime(),
                 })
 
                 dispatch(windowSlice.actions.updateWindow(newWindow))
@@ -142,11 +138,10 @@ export const Top = () => {
           </div>
         </div>
         <div id="window" className="absolute top-0 left-0 z-40">
-          {windowState.window.propsList.map((props, index) => {
+          {windowState.window.propsList.map((props) => {
             const newProps = structuredClone(props)
-            newProps.index = index
-            newProps.contents = getApp(props.id)
-            return <Window key={index} {...newProps}></Window>
+            newProps.contents = getApp(props.appId)
+            return <Window key={props.timestamp} {...newProps} />
           })}
         </div>
       </div>
