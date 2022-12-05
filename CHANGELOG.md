@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.0.17](https://github.com/revoltage-inc/uindowos/compare/v0.0.16...v0.0.17) (2022-12-05)
+
+
+### Bug Fixes
+
+* 115 add files.insertFinalNewline ([24f0808](https://github.com/revoltage-inc/uindowos/commit/24f0808836c51d735d479d1fed1811b7987fec7c))
+* 115 add html formatter ([ea33a8c](https://github.com/revoltage-inc/uindowos/commit/ea33a8cbe910d871df06dcf731a68240d4f948ce))
+* 115 add i18next ([3de59d1](https://github.com/revoltage-inc/uindowos/commit/3de59d1c90e3e8cdd51bcbd852b28342a5b2e8f3))
+* 115 add storybook next-router addon ([43668e7](https://github.com/revoltage-inc/uindowos/commit/43668e76650c494c5fc3c65e5d134218de0da4d1))
+* 115 add tailwind.config.js type ([0a7717a](https://github.com/revoltage-inc/uindowos/commit/0a7717a62f4d581bb09002571d637cedf63076c2))
+* 115 add window close function ([17a725b](https://github.com/revoltage-inc/uindowos/commit/17a725bcbae36231e5429c9206677f2694c73e84))
+* 115 change deep copy mehod ([110b46d](https://github.com/revoltage-inc/uindowos/commit/110b46d0a2744139b8b8a700f2bfd8a4470bad94))
+* 115 fixed issue where app icons could not be clicked ([9f7e7ab](https://github.com/revoltage-inc/uindowos/commit/9f7e7ab85ab85e7fc3dd3213ceabfacb5bb3b6e8))
+* 115 fixed so that window title can not be selected ([1b10a42](https://github.com/revoltage-inc/uindowos/commit/1b10a42163e204150760038fbe3dcbedad6e7576))
+* 115 fixed to abbreviate when title name is long ([8920a40](https://github.com/revoltage-inc/uindowos/commit/8920a404301c812a3cdd8ceac51c541cbff037e1))
+* 115 format ([29423f0](https://github.com/revoltage-inc/uindowos/commit/29423f02d6c631d1299de87874164662cfccda98))
+* 115 refactoring ([2f71211](https://github.com/revoltage-inc/uindowos/commit/2f7121105fbd348718501deb892fb2b230cdb10e))
+* 115 remove scss vscode settings ([4b05acf](https://github.com/revoltage-inc/uindowos/commit/4b05acf53342a5a602401aa7c305b6c21596947d))
+* 115 remove storybook-dark-mode ([c014d21](https://github.com/revoltage-inc/uindowos/commit/c014d2124ad6da2394d94745565c513a652418d0))
+* 115 remove unnecesary VSCode extension ([d2a63bb](https://github.com/revoltage-inc/uindowos/commit/d2a63bb823dcc3025af955111239973db9bda2e0))
+* 115 remove unnecessary environment variable ([3dacb87](https://github.com/revoltage-inc/uindowos/commit/3dacb8767df27779cf5026477c06964e227ebaae))
+* 115 remove unnecessary packages ([2406f2d](https://github.com/revoltage-inc/uindowos/commit/2406f2dd23a9c3aa2a35e127cba25b06bec43bb5))
+* 115 rename ([ae76a20](https://github.com/revoltage-inc/uindowos/commit/ae76a20fe4c77cf5e28f2afb6dbdf7de936e8474))
+* 115 rename ([5a87196](https://github.com/revoltage-inc/uindowos/commit/5a87196e138dd012ec97c9d44f00aecca3f4f98e))
+* 115 rename ([7fa24b0](https://github.com/revoltage-inc/uindowos/commit/7fa24b0ff9208995baccf81f3d2435189d947ceb))
+* 115 rename store ([64cd612](https://github.com/revoltage-inc/uindowos/commit/64cd612199703902d0761bdb0d18fb02f9422da1))
+* 115 update Node.js and npm ([c639ab8](https://github.com/revoltage-inc/uindowos/commit/c639ab811abc3eb2f97e315d2aad97de17374ff9))
+* 115 update package ([a4eced5](https://github.com/revoltage-inc/uindowos/commit/a4eced5f22297115ec342f314ee85dff802f79ed))
+* 115 update package ([c7be527](https://github.com/revoltage-inc/uindowos/commit/c7be5275a48c9a4d12cea42340353f90b755913b))
+* 115 update package ([dbc11c5](https://github.com/revoltage-inc/uindowos/commit/dbc11c56b716becd31b8cfb173e866dc92d6106e))
+* 115 update package-lock.json ([b3e9d2d](https://github.com/revoltage-inc/uindowos/commit/b3e9d2ddbcbff0c28a1c6cb93b6ab09cfb6356ec))
+* 115 update packages ([d5753c6](https://github.com/revoltage-inc/uindowos/commit/d5753c6ebf71537f9d2e105fdd93b4ed633fe44f))
+* 115 update packages ([6753be2](https://github.com/revoltage-inc/uindowos/commit/6753be203441da4c8362ac9514ae3431ad0e9562))
+* 115 update storybook setting ([0518aa4](https://github.com/revoltage-inc/uindowos/commit/0518aa48f880e51b96756731fc09c70d68ed1dca))
+* 115 window app function ([9703cd5](https://github.com/revoltage-inc/uindowos/commit/9703cd5e203f7776b243c8d155c69dfd689c41a3))
+
 ## [0.0.16](https://github.com/revoltage-inc/uindowos/compare/v0.0.15...v0.0.16) (2022-11-12)
 
 
