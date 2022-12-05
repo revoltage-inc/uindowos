@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { terminalAnimation } from '@libs/animation/TerminalAnimation'
+import { animateTerminal } from '@libs/animation/terminal'
 import TerminalEdgeSVG from '@assets/svg/login/terminal/terminal-edge.svg'
 import TerminalEyeSVG from '@assets/svg/login/terminal/terminal-eye.svg'
 import TerminalMouthSVG from '@assets/svg/login/terminal/terminal-mouth.svg'
@@ -8,19 +8,19 @@ import RainSVG from '@assets/svg/login/rain.svg'
 import UmbrellaSVG from '@assets/svg/login/umbrella.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@libs/store'
-import { uindowosSlice } from '@libs/store/uindowos'
+import { animationSlice } from '@libs/store/animation'
 
 export const Terminal = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.uindowos)
+  const state = useSelector((state: RootState) => state.animation)
 
   useEffect(() => {
-    if (state.uindowos.terminalAnimation) {
-      terminalAnimation()
+    if (state.animation.showTerminal) {
+      animateTerminal()
 
-      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
-      newUindowOS.terminalAnimation = false
-      dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+      const newAnimation = structuredClone(state.animation)
+      newAnimation.showTerminal = false
+      dispatch(animationSlice.actions.updateAnimation(newAnimation))
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +80,7 @@ export const Terminal = () => {
             />
           </div>
           <div
-            id="text-UindowOS"
+            id="text-Animation"
             className="relative flex h-[40px] w-[124px] text-[1.25rem] leading-none tracking-wider"
           >
             <div className="h-full">

@@ -1,5 +1,5 @@
-import { StorybookConfig } from '@storybook/react-vite'
-// import { StorybookConfig } from '@storybook/react-webpack5'
+import type { StorybookConfig } from '@storybook/react-vite'
+// import type { StorybookConfig } from '@storybook/react-webpack5'
 // import { DefinePlugin } from 'webpack'
 // import { resolve } from 'path'
 
@@ -9,7 +9,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-dark-mode',
+    'storybook-addon-next-router',
   ],
   staticDirs: ['../public'],
   framework: {
@@ -19,6 +19,9 @@ const config: StorybookConfig = {
       fastRefresh: true,
       strictMode: true,
     },
+  },
+  docs: {
+    docsPage: 'automatic',
   },
   // webpackFinal: (config) => {
   //   if (config.module?.rules) {
@@ -63,5 +66,4 @@ const config: StorybookConfig = {
   //   return config
   // },
 }
-
 export default config

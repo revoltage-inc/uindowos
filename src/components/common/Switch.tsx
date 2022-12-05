@@ -1,23 +1,23 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import TitleSVG from '@assets/svg/common/title.svg'
-import { switchOnAnimation, switchOffAnimation } from '@libs/animation/SwitchAnimation'
+import { animateSwitchOn, animateSwitchOff } from '@libs/animation/switch'
 
-interface Args {
+interface Props {
   type?: 'on' | 'off'
   href?: string
 }
 
-export const Switch = (args: Args) => {
-  const type = args.type ? args.type : 'off'
-  const href = args.href ? args.href : '/'
+export const Switch = (props: Props) => {
+  const type = props.type ? props.type : 'off'
+  const href = props.href ? props.href : '/'
   const router = useRouter()
 
   useEffect(() => {
     if (type === 'off') {
-      switchOffAnimation()
+      animateSwitchOff()
     } else if (type === 'on') {
-      switchOnAnimation()
+      animateSwitchOn()
       setInterval(() => router.push(href), 800)
     }
 

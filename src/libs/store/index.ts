@@ -1,7 +1,8 @@
 import { configureStore, combineReducers, EnhancedStore } from '@reduxjs/toolkit'
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
-import { uindowosSlice } from './uindowos'
+import { animationSlice } from './animation'
+import { windowSlice } from './window'
 
 // HACK: `redux-persist failed to create sync storage.
 // https://github.com/vercel/next.js/discussions/15687#discussioncomment-45319
@@ -21,7 +22,8 @@ const createNoopStorage = () => {
 const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage()
 
 const rootReducer = combineReducers({
-  uindowos: uindowosSlice.reducer,
+  animation: animationSlice.reducer,
+  window: windowSlice.reducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>

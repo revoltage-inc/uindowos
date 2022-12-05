@@ -1,6 +1,6 @@
 import { gsap, Power2 } from 'gsap'
 
-export function switchOnAnimation() {
+export const animateSwitchOn = () => {
   const timeline = gsap.timeline()
 
   timeline
@@ -43,7 +43,7 @@ export function switchOnAnimation() {
     )
 }
 
-export function switchOffAnimation() {
+export const animateSwitchOff = () => {
   const timeline = gsap.timeline()
 
   timeline

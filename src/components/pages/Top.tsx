@@ -1,38 +1,48 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
-import { wallpaperAnimation } from '@libs/animation/WallpaperAnimation'
-import { appMoveAnimation } from '@libs/animation/AppMoveAnimation'
+import { animateApp, animateWallpaper } from '@libs/animation/desktop'
 import { Menu } from '@components/parts/Top/Menu'
 import { Switch } from '@components/common/Switch'
 import { Window } from '@components/common/Window'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@libs/store'
-import { uindowosSlice } from '@libs/store/uindowos'
+import { animationSlice } from '@libs/store/animation'
+import { windowSlice } from '@libs/store/window'
 
 export const Top = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state: RootState) => state.uindowos)
+  const animationState = useSelector((state: RootState) => state.animation)
+  const windowState = useSelector((state: RootState) => state.window)
 
   useEffect(() => {
-    wallpaperAnimation()
+    animateWallpaper()
 
-    if (state.uindowos.appMoveAnimation) {
-      appMoveAnimation()
+    if (animationState.animation.moveApp) {
+      animateApp()
     }
 
     setTimeout(() => {
-      const newUindowOS = JSON.parse(JSON.stringify(state.uindowos)) as typeof state.uindowos
-      newUindowOS.switchOffAnimation = false
-      newUindowOS.appMoveAnimation = false
-      dispatch(uindowosSlice.actions.updateUindowOS(newUindowOS))
+      const newAnimation = structuredClone(animationState.animation)
+      newAnimation.switchOff = false
+      newAnimation.moveApp = false
+      dispatch(animationSlice.actions.updateAnimation(newAnimation))
     }, 2000)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const getApp = (appId?: string) => {
+    switch (appId) {
+      case 'folder':
+        return <></>
+      default:
+        return <></>
+    }
+  }
+
   return (
     <>
-      {state.uindowos.switchOffAnimation && <Switch type="off" />}
+      {animationState.animation.switchOff && <Switch type="off" />}
       <div className="flex h-full w-full flex-col bg-main">
         <Menu />
         <div className="absolute top-0 left-0 z-10 aspect-[1280/720] h-auto w-full">
@@ -62,6 +72,18 @@ export const Top = () => {
           <div
             id="folder"
             className="absolute top-[274px] right-[104px] h-[48px] w-[48px] rounded-md drop-shadow-sm"
+            onClick={() => {
+              if (!windowState.window.propsList.find((props) => props.appId === 'folder')) {
+                const newWindow = structuredClone(windowState.window)
+                newWindow.propsList.push({
+                  appId: 'folder',
+                  title: 'Folder',
+                  timestamp: new Date().getTime(),
+                })
+
+                dispatch(windowSlice.actions.updateWindow(newWindow))
+              }
+            }}
           >
             <Image src="/img/top/desktop/folder.png" width={48} height={39} alt="" />
           </div>
@@ -115,10 +137,12 @@ export const Top = () => {
             <Image src="/img/top/desktop/mail.png" width={48} height={48} alt="" />
           </div>
         </div>
-        <div id="window" className="absolute top-0 left-0 z-40 h-full w-full">
-          <Window>
-            <p>test</p>
-          </Window>
+        <div id="window" className="absolute top-0 left-0 z-40">
+          {windowState.window.propsList.map((props) => {
+            const newProps = structuredClone(props)
+            newProps.contents = getApp(props.appId)
+            return <Window key={props.timestamp} {...newProps} />
+          })}
         </div>
       </div>
     </>

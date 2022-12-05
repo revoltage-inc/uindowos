@@ -20,12 +20,12 @@ It is created with reference to "UindowOS" of the stream screen of Ui Shigure.
 Create environment with following command.  
 
 ```zsh
-volta install node@18.9.0 npm@8.19.1
+volta install node@18.12.1 npm@9.1.2
 
 npm install
 ```
 
-Then create environment file with following command.  
+~~Then create environment file with following command.~~  
 
 ```zsh
 cp .env.template .env

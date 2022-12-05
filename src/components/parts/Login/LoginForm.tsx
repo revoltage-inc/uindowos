@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@libs/store'
 
 export const LoginForm = () => {
-  const state = useSelector((state: RootState) => state.uindowos)
+  const state = useSelector((state: RootState) => state.animation)
   const [showSwitch, setShowSwitch] = useState(false)
 
   const passwordRef = useRef<HTMLInputElement>(null)
@@ -18,7 +18,7 @@ export const LoginForm = () => {
 
   useEffect(() => {
     // Run terminal animation only on first page load
-    startAnimation(state.uindowos.terminalAnimation)
+    startAnimation(state.animation.showTerminal)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -83,10 +83,10 @@ export const LoginForm = () => {
     }
   }
 
-  const startAnimation = (terminalAnimation: boolean) => {
+  const startAnimation = (showTerminal: boolean) => {
     // Delay by terminal animation time
     const timeline = gsap.timeline({
-      duration: terminalAnimation ? 5.6 : 0,
+      duration: showTerminal ? 5.6 : 0,
     })
 
     timeline
