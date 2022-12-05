@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.18](https://github.com/revoltage-inc/uindowos/compare/v0.0.17...v0.0.18) (2022-12-05)
+
+
+### Bug Fixes
+
+* 126 override vulnerable package version ([05447b3](https://github.com/revoltage-inc/uindowos/commit/05447b345b1a41c9a4f02f16b90967295ebcde2c))
+* 126 update packages ([e44ff43](https://github.com/revoltage-inc/uindowos/commit/e44ff43345bb597884779c0cb45785e316ba6786))
+
 ## [0.0.17](https://github.com/revoltage-inc/uindowos/compare/v0.0.16...v0.0.17) (2022-12-05)
 
 
