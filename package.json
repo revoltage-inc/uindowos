@@ -21,7 +21,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.9.1",
     "gsap": "^3.11.3",
-    "i18next": "^22.0.7",
+    "i18next": "^22.4.2",
     "next": "^13.0.6",
     "next-i18next": "^13.0.0",
     "react": "^18.2.0",
