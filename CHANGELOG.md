@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.19](https://github.com/revoltage-inc/uindowos/compare/v0.0.18...v0.0.19) (2022-12-19)
+
+
+### Bug Fixes
+
+* 151 remove unnecessary files of prisma ([4b7ce1c](https://github.com/revoltage-inc/uindowos/commit/4b7ce1cb1a212f43a366177afbb40bbcaee57371))
+* 151 update packages ([f34e3f3](https://github.com/revoltage-inc/uindowos/commit/f34e3f32ad224f2064e2e5c48c0166e782ad16c9))
+
 ## [0.0.18](https://github.com/revoltage-inc/uindowos/compare/v0.0.17...v0.0.18) (2022-12-05)
 
 
