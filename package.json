@@ -16,7 +16,7 @@
   "dependencies": {
     "@babylonjs/core": "^5.38.0",
     "@babylonjs/materials": "^5.38.0",
-    "@babylonjs/procedural-textures": "^5.38.0",
+    "@babylonjs/procedural-textures": "^5.40.0",
     "@headlessui/react": "^1.7.7",
     "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.9.1",
